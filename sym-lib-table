@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name Calavera)(type Legacy)(uri ${KIPRJMOD}/Calavera.lib)(options "")(descr ""))
+  (lib (name felcana)(type Legacy)(uri C:/Users/Joel/Workspace/felcana-kicad-library/felcana.lib)(options "")(descr ""))
+)
