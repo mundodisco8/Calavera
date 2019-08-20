@@ -10,10 +10,22 @@ K battery cell
 F ~
 $ENDCMP
 #
+$CMP Edge
+D Calavera Skull Board Edge
+$ENDCMP
+#
+$CMP Mask
+D Calavera Skull SolderMask Gaps
+$ENDCMP
+#
 $CMP Q_DUAL_NMOS
 D Dual NMOS transistor, 6 pin package
 K transistor NMOS N-MOS N-MOSFET
 F ~
+$ENDCMP
+#
+$CMP Silk
+D Calavera Skull silkscreen
 $ENDCMP
 #
 #End Doc Library

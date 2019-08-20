@@ -719,4 +719,37 @@ Wire Notes Line
 	2000 2950 2000 5100
 Wire Notes Line
 	500  5100 11200 5100
+$Comp
+L Calavera:Silk G4
+U 1 1 5D5C30EC
+P 9650 5900
+F 0 "G4" H 9650 5339 60  0001 C CNN
+F 1 "Silk" H 9650 6461 60  0001 C CNN
+F 2 "Calavera:Calavera_SilkScreen_1200dpi" H 9650 5900 50  0001 C CNN
+F 3 "" H 9650 5900 50  0001 C CNN
+	1    9650 5900
+	1    0    0    -1  
+$EndComp
+$Comp
+L Calavera:Mask G3
+U 1 1 5D5CCE2E
+P 8800 5900
+F 0 "G3" H 9150 5400 60  0001 C CNN
+F 1 "Mask" H 9200 6450 60  0001 C CNN
+F 2 "Calavera:Calavera_SolderMask_1200dpi" H 8800 5900 50  0001 C CNN
+F 3 "" H 8800 5900 50  0001 C CNN
+	1    8800 5900
+	1    0    0    -1  
+$EndComp
+$Comp
+L Calavera:Edge G2
+U 1 1 5D5D7396
+P 7900 5900
+F 0 "G2" H 8250 5400 60  0001 C CNN
+F 1 "Edge" H 8300 6450 60  0001 C CNN
+F 2 "Calavera:Calavera_Board_Margins" H 7900 5900 50  0001 C CNN
+F 3 "" H 7900 5900 50  0001 C CNN
+	1    7900 5900
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
