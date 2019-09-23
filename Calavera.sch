@@ -239,6 +239,8 @@ F 0 "BT1" H 9568 3996 50  0000 L CNN
 F 1 "Battery_Cell" H 9568 3905 50  0000 L CNN
 F 2 "Calavera:CR2032_Multicomp_MP000357_Alternative" V 9450 3960 50  0001 C CNN
 F 3 "~" V 9450 3960 50  0001 C CNN
+F 4 "MP000357" H 9450 3900 50  0001 C CNN "MPN"
+F 5 "Multicomp" H 9450 3900 50  0001 C CNN "Manufacturer "
 	1    9450 3900
 	1    0    0    -1  
 $EndComp
@@ -378,7 +380,7 @@ P 8200 1900
 F 0 "U2" H 8200 2267 50  0000 C CNN
 F 1 "LMV932" H 8200 2176 50  0000 C CNN
 F 2 "Calavera:SOIC-8_Dual_OpAmp" H 8200 1900 50  0001 C CNN
-F 3 "~" H 8200 1900 50  0001 C CNN
+F 3 "https://www.onsemi.com/pub/Collateral/LMV931-D.PDF" H 8200 1900 50  0001 C CNN
 	2    8200 1900
 	1    0    0    -1  
 $EndComp
@@ -389,7 +391,7 @@ P 9250 1700
 F 0 "U2" H 9208 1746 50  0000 L CNN
 F 1 "LMV932" H 9208 1655 50  0000 L CNN
 F 2 "Calavera:SOIC-8_Dual_OpAmp" H 9250 1700 50  0001 C CNN
-F 3 "~" H 9250 1700 50  0001 C CNN
+F 3 "https://www.onsemi.com/pub/Collateral/LMV931-D.PDF" H 9250 1700 50  0001 C CNN
 	3    9250 1700
 	1    0    0    -1  
 $EndComp
@@ -494,7 +496,8 @@ P 7000 1800
 F 0 "U2" H 7000 2167 50  0000 C CNN
 F 1 "LMV932" H 7000 2076 50  0000 C CNN
 F 2 "Calavera:SOIC-8_Dual_OpAmp" H 7000 1800 50  0001 C CNN
-F 3 "~" H 7000 1800 50  0001 C CNN
+F 3 "https://www.onsemi.com/pub/Collateral/LMV931-D.PDF" H 7000 1800 50  0001 C CNN
+F 4 "LMV932DR2G" H 7000 1800 50  0001 C CNN "MPN"
 	1    7000 1800
 	1    0    0    -1  
 $EndComp
@@ -538,7 +541,7 @@ L Device:R_Small_US R9
 U 1 1 5D50C282
 P 9700 1600
 F 0 "R9" H 9768 1646 50  0000 L CNN
-F 1 "2500" H 9768 1555 50  0000 L CNN
+F 1 "2490" H 9768 1555 50  0000 L CNN
 F 2 "felcana:0805-R_Handsolder" H 9700 1600 50  0001 C CNN
 F 3 "~" H 9700 1600 50  0001 C CNN
 	1    9700 1600
@@ -607,7 +610,7 @@ P 3850 3900
 F 0 "Q1" H 4050 3900 50  0000 L CNN
 F 1 "Q_DUAL_NMOS" H 4050 3800 50  0001 L CNN
 F 2 "Calavera:SOT-363_NX138BKS_Handsolder" H 4600 3750 50  0001 C CNN
-F 3 "~" H 4050 3900 50  0001 C CNN
+F 3 "https://assets.nexperia.com/documents/data-sheet/NX138BKS.pdf" H 4050 3900 50  0001 C CNN
 	2    3850 3900
 	-1   0    0    -1  
 $EndComp
@@ -618,7 +621,8 @@ P 3000 3900
 F 0 "Q1" H 3200 3900 50  0000 L CNN
 F 1 "Q_DUAL_NMOS" H 3200 3900 50  0001 L CNN
 F 2 "Calavera:SOT-363_NX138BKS_Handsolder" H 3750 3750 50  0001 C CNN
-F 3 "~" H 3200 3900 50  0001 C CNN
+F 3 "https://assets.nexperia.com/documents/data-sheet/NX138BKS.pdf" H 3200 3900 50  0001 C CNN
+F 4 "NX138BKS" H 3000 3900 50  0001 C CNN "MPN"
 	1    3000 3900
 	1    0    0    -1  
 $EndComp
@@ -655,7 +659,7 @@ VLED
 Text GLabel 1250 3800 3    50   Input ~ 0
 VLED
 Text Notes 5050 5000 0    50   ~ 0
-Limiting resistors: voltage is not high enough for Blue and borderline for green.\nI think it's safe to not populate them in these two cases\nTypical red Vf is 1.8V, so in the best case of VDD = 3V, for an If = 10mA (~1.5Vf), \nR = 150Ω
+Limiting resistors: voltage is not high enough for Blue and borderline for green.\nI think it's safe to not populate them in these two cases\nTypical red Vf is 1.8V, so in the best case of VDD = 3V, for an If = 10mA (1.5Vf-ish), \nR = 100 to 150Ω
 Text Notes 9100 4600 0    50   ~ 0
 A lithium coin cell starts at 3V \nand will drop to around 2.5V
 $Comp
@@ -665,7 +669,8 @@ P 2800 1900
 F 0 "U1" H 2950 1600 50  0000 C CNN
 F 1 "AT42QT1012" H 3100 1500 50  0000 C CNN
 F 2 "Calavera:SOT23-6-AT42QT1012" H 2800 1900 50  0001 C CNN
-F 3 "" H 2800 1900 50  0001 C CNN
+F 3 "http://ww1.microchip.com/downloads/en/devicedoc/40001948a.pdf" H 2800 1900 50  0001 C CNN
+F 4 "AT42QT1012-TSHR " H 2800 1900 50  0001 C CNN "MPN"
 	1    2800 1900
 	1    0    0    -1  
 $EndComp

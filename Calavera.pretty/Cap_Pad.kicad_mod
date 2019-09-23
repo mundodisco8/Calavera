@@ -1,4 +1,4 @@
-(module Cap_Pad (layer F.Cu) (tedit 5D5BFEE4)
+(module Cap_Pad (layer F.Cu) (tedit 5D663516)
   (attr virtual)
   (fp_text reference REF** (at 0 -4) (layer F.SilkS) hide
     (effects (font (size 1.524 1.524) (thickness 0.3)))
@@ -259,6 +259,7 @@
   (fp_circle (center -0.95 8.42) (end -0.949 8.42) (layer F.Mask) (width 0.3))
   (fp_circle (center -0.33 8.14) (end -0.329 8.14) (layer F.Mask) (width 0.3))
   (pad 1 smd custom (at 0 5) (size 1 1) (layers F.Cu)
+    (clearance 2) (zone_connect 0)
     (options (clearance outline) (anchor circle))
     (primitives
       (gr_poly (pts
