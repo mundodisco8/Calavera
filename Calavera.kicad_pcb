@@ -8555,4 +8555,19 @@
       )
     )
   )
+  (zone (net 3) (net_name GND) (layer In2.Cu) (tstamp 0) (hatch edge 0.508)
+    (connect_pads (clearance 0))
+    (min_thickness 0.254)
+    (fill yes (arc_segments 32) (thermal_gap 0.508) (thermal_bridge_width 0.508))
+    (polygon
+      (pts
+        (xy 128.65 106.45) (xy 137.65 118.5) (xy 136.1 122.1) (xy 130.65 117.1) (xy 126.75 108.1)
+      )
+    )
+    (filled_polygon
+      (pts
+        (xy 137.504327 118.517192) (xy 136.054076 121.885518) (xy 130.75578 117.024696) (xy 126.903526 108.134879) (xy 128.630054 106.635526)
+      )
+    )
+  )
 )
