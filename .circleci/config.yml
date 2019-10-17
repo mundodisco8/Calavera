@@ -1,0 +1,93 @@
+version: 2.1
+description: This is a test with an inline Orb that simplifies the creation of fabrication outputs of KiCad projects
+
+orbs:
+  kicad-manufacturing-files:
+    jobs:
+      pickAndPlacePositions:
+        # This job generates the pick and place positions of the components of a PCB file in an Excel file.
+        parameters:
+          projectPath:
+            description: "[REQUIRED] Project's folder path"
+            type: env_var_name
+            default: PROJECT_PATH
+          PCBFile:
+            description: "[REQUIRED File that will be used as input."
+            type: string
+          includeVirtualComponentsFlag:
+            description: "[OPTIONAL] Determines if components marked as \"Virtual\" should be included or not. By default they aren't, but it can be helpful if you need the positions of thinks like test pads, mounting holes, fiducials, ..."
+            type: boolean
+            default: false
+          artifactsPath:
+            description: "[REQUIRED] Destination path for the artifacts generated on this project"
+            type: env_var_name
+        executor: kicad_on_ubuntu
+        steps:
+          - create_pick_and_place_file:
+              projectPath: << parameters.projectPath >>
+              PCBFile: << parameters.PCBFile >>
+              includeVirtualComponentsFlag: << parameters.includeVirtualComponentsFlag >>
+          - move_artifacts:
+              artifactsPath: << parameters.artifactsPath >>
+
+    commands:
+      create_pick_and_place_file:
+        parameters:
+          projectPath:
+            type: env_var_name
+          PCBFile:
+            type: string
+          includeVirtualComponentsFlag:
+            type: boolean
+            default: false
+        steps:
+          # Need to add support to the --all thingy with the includeVirtualComponentsFlag
+          - run: python3 PositionsGenerator.py "${<< parameters.projectPath >>}/<< parameters.PCBFile >>"
+          # unless:
+          #   condition: << parameters.includeVirtualComponentsFlag >> # ...but run this when the flag is false...
+          #   steps:
+          #     - run: python3 PositionsGenerator.py "${<< parameters.projectPath >>}/<< parameters.PCBFile >>.kicad_pcb"
+
+      move_artifacts:
+        parameters:
+          artifactsPath:
+            type: string
+        steps:
+          - run: mv *_Positions.xlsx "${<< parameters.artifactsPath >>}"
+
+    executors:
+      kicad_on_ubuntu:
+        parameters:
+          version:
+            type: string
+            default: "19_10_11"
+        docker:
+          - image: mundodisco8/kicad_on_ubuntu:<<parameters.version>>
+
+# This is outside of the orb!
+jobs:
+  setEnvironmentVariables:
+    # Sets the environment variables needed for this project: ARTIFACTS_PATH and PROJECT_PATH
+    docker:
+      - image: mundodisco8/kicad_on_ubuntu:19_10_11
+
+    steps:
+      - run:
+          name: "Setup custom environment variables"
+          command: |
+            echo 'export ARTIFACTS_PATH="/artifacts"' >> $BASH_ENV # Redirect MY_ENV_VAR into $BASH_ENV
+            echo 'export PROJECT_PATH="/project/Calavera"' >> $BASH_ENV # Redirect MY_ENV_VAR into $BASH_ENV
+
+workflows:
+  createAndDeploy:
+      jobs:
+        - setEnvironmentVariables
+        - kicad-manufacturing-files/pickAndPlacePositions:
+            name: Get Pick And Place Positions # best practice is to name each orb job
+            projectPath: PROJECT_PATH
+            PCBFile: "Calavera.kicad_pcb"
+            includeVirtualComponentsFlag: false
+            artifactsPath: ARTIFACTS_PATH
+            pre-steps:
+              - checkout # default working directory is "/project"
+              - run: mkdir "${ARTIFACTS_PATH}"
