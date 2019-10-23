@@ -1,0 +1,139 @@
+# Example KiPlot config file
+kiplot:
+  version: 1
+
+preflight:
+
+  # one day....
+  check_zone_fills: false
+  run_drc: false
+
+outputs:
+
+  - name: 'gerbers'
+    comment: "Gerbers for the board house"
+    type: gerber
+    dir: gerberdir
+    options:
+      # generic layer options
+      plot_sheet_reference: false
+      plot_footprint_values: false
+      plot_footprint_refs: true
+      force_plot_invisible_refs_vals: false
+      exclude_edge_layer: true
+      exclude_pads_from_silkscreen: true
+      tent_vias: true
+      use_aux_axis_as_origin: true
+      check_zone_fills: true
+
+      # gerber options
+      line_width: 0.1
+      use_protel_extensions: true
+      create_gerber_job_file: true
+      subtract_mask_from_silk: true
+      gerber_precision: 4.6
+      use_gerber_x2_attributes: false
+      use_gerber_net_attributes: false
+
+    layers:
+      - layer: F.Cu
+        suffix: F_Cu
+      - layer: B.Cu
+        suffix: B_Cu
+      - layer: F.Paste
+        suffix: F_Paste
+      - layer: B.Paste
+        suffix: B_Paste
+      - layer: F.SilkS
+        suffix: F_SilkS
+      - layer: B.SilkS
+        suffix: B_SilkS
+      - layer: F.Mask
+        suffix: F_Mask
+      - layer: B.Mask
+        suffix: B_Mask
+      - layer: Dwgs.User
+        suffix: Dwgs_User
+      - layer: Cmts.User
+        suffix: Cmts_User
+      - layer: Edge.Cuts
+        suffix: Edge_Cuts
+
+  - name: excellon_drill_drl
+    comment: "Excellon drill files"
+    type: excellon
+    dir: gerberdir
+    options:
+      mirror_y_axis: false
+      use_aux_axis_as_origin: true
+      pth_and_npth_single_file: false
+      metric_units: true
+      minimal_header: false
+      map:
+        type: 'gerber'
+      report:
+        filename: 'drill_report.rpt'
+
+
+  # - name: gerber_drills_gerber
+  #   comment: "Gerber drill files"
+  #   type: gerb_drill
+  #   dir: gerberdir
+  #   options:
+  #     mirror_y_axis: false
+  #     use_aux_axis_as_origin: true
+  #     pth_and_npth_single_file: false
+  #     metric_units: true
+  #     minimal_header: false
+  #     map:
+  #       type: 'gerber'
+
+  # - name: SVG
+  #   comment: "Manufacturing Drawings Front normal"
+  #   type: svg
+  #   dir: Manuf_Drawings
+  #   options:
+  #     # generic layer options
+  #     plot_sheet_reference: false
+  #     plot_footprint_values: false
+  #     plot_footprint_refs: true
+  #     force_plot_invisible_refs_vals: true
+  #     exclude_edge_layer: false
+  #     exclude_pads_from_silkscreen: false
+  #     tent_vias: true
+  #     check_zone_fills: true
+  #     # SVG specific options
+  #     drill_marks: "small"
+  #     line_width: 0.1
+  #     mirror_plot: false
+  #     negative_plot: false
+  #   layers:
+  #     - layer: F.Fab
+  #       suffix: F_Fab
+  #     - layer: F.SilkS
+  #       suffix: F.SilkS
+
+  # - name: SVG
+  #   comment: "Manufacturing Drawings Back Mirrored"
+  #   type: svg
+  #   dir: Manuf_Drawings
+  #   options:
+  #     # generic layer options
+  #     plot_sheet_reference: false
+  #     plot_footprint_values: false
+  #     plot_footprint_refs: true
+  #     force_plot_invisible_refs_vals: true
+  #     exclude_edge_layer: false
+  #     exclude_pads_from_silkscreen: false
+  #     tent_vias: true
+  #     check_zone_fills: true
+  #     # SVG specific options
+  #     drill_marks: "none"
+  #     line_width: 0.1
+  #     mirror_plot: true
+  #     negative_plot: false
+  #   layers:
+  #     - layer: B.Fab
+  #       suffix: B.Fab
+  #     - layer: B.SilkS
+  #       suffix: B_SilkS
