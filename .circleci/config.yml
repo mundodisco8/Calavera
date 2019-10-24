@@ -1,193 +1,14 @@
 version: 2.1
-description: This is a test with an inline Orb that simplifies the creation of fabrication outputs of KiCad projects
 
 orbs:
-  kicad-manufacturing-files:
-    jobs:
-      initialSetup:
-        # First job to be called, install the python scripts' repo and makes them callable without having to add the
-        # whole path
-        executor: kicad_on_ubuntu
-        steps:
-          - checkout # default working directory is "/root/project"
-          - run:
-              name: Create artifacts folder
-              command: mkdir artifacts
-          - clone_script_repo_and_install_scripts
-          - persist_to_workspace:
-              root: ../
-              paths:
-                - project
-                - project/artifacts
-
-      pickAndPlacePositions:
-        # This job generates the pick and place positions of the components of a PCB file in an
-        # Excel file, and stores it in the artifacts folder.
-        parameters:
-          projectPath:
-            description: "[REQUIRED] Environmental variable containing the project's folder path"
-            type: env_var_name
-            default: PROJECT_PATH
-          PCBFile:
-            description: "[REQUIRED] File that will be used as input."
-            type: string
-          includeVirtualComponentsFlag:
-            description: "[OPTIONAL] Determines if components marked as \"Virtual\" should be included or not. By default they aren't, but it can be helpful if you need the positions of thinks like test pads, mounting holes, fiducials, ..."
-            type: boolean
-            default: false
-          artifactsPath:
-            description: "[OPTIONAL] Path where to store the artifacts"
-            type: string
-            default: "artifacts/"
-        executor: kicad_on_ubuntu
-        steps:
-          - attach_workspace:
-              at: /root/
-          - clone_script_repo_and_install_scripts
-          - create_pick_and_place_file:
-              projectPath: << parameters.projectPath >>
-              PCBFile: << parameters.PCBFile >>
-              includeVirtualComponentsFlag: << parameters.includeVirtualComponentsFlag >>
-              artifactsPath: << parameters.artifactsPath >>
-          - store_artifacts_cmd:
-              artifactsPath: <<parameters.artifactsPath >>
-
-      gerberFiles:
-        # This job generates gerber files of a PCB file and stores them in a tar file in the artifacts
-        # folder.
-        parameters:
-          projectPath:
-            description: "[REQUIRED] Environmental variable containing the project's folder path"
-            type: env_var_name
-            default: PROJECT_PATH
-          PCBFile:
-            description: "[REQUIRED] File that will be used as input."
-            type: string
-          configFile:
-            description: "[OPTIONAL] Kiplot config file to be used."
-            type: string
-            default: "Kiplot_config.yaml"
-          artifactsPath:
-            description: "[OPTIONAL] Path where to store the artifacts"
-            type: string
-            default: "artifacts/"
-        executor: kicad_on_ubuntu
-        steps:
-          - attach_workspace:
-              at: /root/
-          - clone_script_repo_and_install_scripts
-          - create_gerbers:
-              projectPath: << parameters.projectPath >>
-              PCBFile: << parameters.PCBFile >>
-              configFile: << parameters.configFile >>
-              artifactsPath: << parameters.artifactsPath >>
-          - store_artifacts_cmd:
-              artifactsPath: << parameters.artifactsPath >>
-
-# storeArtifacts:
-#   parameters:
-#     artifactsPath:
-#       description: "[OPTIONAL] Path where to store the artifacts"
-#       type: string
-#       default: "artifacts/"
-#   executor: kicad_on_ubuntu
-#   steps:
-#     - store_artifacts_cmd:
-#         artifactsPath: << parameters.artifactsPath >>
-
-    commands:
-      clone_script_repo_and_install_scripts:
-        steps:
-          - run: # Clone Python script repos
-              name: Clone Script Repos
-              # Clone repo at /, not workingdir
-              command: git clone https://github.com/mundodisco8/KicadPythonScripts.git /KiCad_Python_Scripts
-# - run: # Make scripts callable
-#     name: Make scripts callable
-#     command: |
-#       mv "KiCad_Python_Scripts/ExcelBomGenerator/ExcelBomGenerator.py" /usr/local/bin
-#       chmod +x /usr/local/bin/ExcelBomGenerator.py
-
-      create_pick_and_place_file:
-        parameters:
-          projectPath:
-            type: env_var_name
-          PCBFile:
-            type: string
-          includeVirtualComponentsFlag:
-            type: boolean
-            default: false
-          artifactsPath:
-            type: string
-            default: "artifacts/"
-        steps:
-          - run:
-              name: Make Scripts callable
-              command: |
-                mv "/KiCad_Python_Scripts/PositionsGenerator/PositionsGenerator.py" /usr/local/bin
-                chmod +x /usr/local/bin/PositionsGenerator.py
-          # Need to add support to the --all thingy with the includeVirtualComponentsFlag
-          - run:
-              name: Generate Positions file
-              # TODO: fix that projectPath thing, as it's a bit annoying as it is now
-              command: PositionsGenerator.py "${<< parameters.projectPath >>}/<< parameters.PCBFile >>"
-            # unless:
-            #   condition: << parameters.includeVirtualComponentsFlag >> # ...but run this when the flag is false...
-            #   steps:
-            #     - run: PositionsGenerator.py "${<< parameters.projectPath >>}/<< parameters.PCBFile >>.kicad_pcb"
-          - run:
-              name: Move Artifacts
-              command: mkdir -p << parameters.artifactsPath >> && mv *_Positions.xlsx << parameters.artifactsPath >>
-
-      create_gerbers:
-        parameters:
-          projectPath:
-            type: env_var_name
-          PCBFile:
-            type: string
-          configFile:
-            type: string
-            default: Kiplot_config.yaml
-          artifactsPath:
-            type: string
-            default: artifacts
-        steps:
-          - run:
-              name: Generate Gerbers
-              command: |
-                kiplot -b "${<< parameters.projectPath >>}/<< parameters.PCBFile >>" -c << parameters.configFile>>
-                PROJECTNAME=$(basename <<parameters.PCBFile>> .kicad_pcb) # strip the extension from PCBFile and use it as project name
-                mkdir -p << parameters.artifactsPath >> && tar -zcvf << parameters.artifactsPath >>/${PROJECTNAME}_Gerbers.tar.gz gerberdir/
-
-      store_artifacts_cmd:
-        parameters:
-          artifactsPath:
-            type: string
-            default: artifacts
-        steps:
-          - store_artifacts:
-              path: << parameters.artifactsPath >>
-              destination:
-
-    executors:
-      kicad_on_ubuntu:
-        parameters:
-          version:
-            type: string
-            default: "19_10_18"
-        docker:
-          - image: mundodisco8/kicad_on_ubuntu:<<parameters.version>>
-        working_directory: ~/project/
-
-# This is outside of the orb!
+  kicadcd: mundodisco8/kicad-manufacturing-files@dev:19_10_24
 
 workflows:
-  version: 2.1
   createFabricationOutputsAndStore:
       jobs:
-        - kicad-manufacturing-files/initialSetup:
+        - kicadcd/initialSetup:
             name: Initial Setup
-        - kicad-manufacturing-files/pickAndPlacePositions:
+        - kicadcd/pickAndPlacePositions:
             name: Get Pick And Place Positions # best practice is to name each orb job
             projectPath: PROJECT_PATH
             PCBFile: "Calavera.kicad_pcb"
@@ -196,7 +17,7 @@ workflows:
             requires:
               - Initial Setup
 
-        - kicad-manufacturing-files/gerberFiles:
+        - kicadcd/gerberFiles:
             name: Generate Gerber files
             projectPath: PROJECT_PATH
             PCBFile: "Calavera.kicad_pcb"
@@ -204,9 +25,3 @@ workflows:
             artifactsPath: "artifacts/"
             requires:
               - Initial Setup
-
-# - kicad-manufacturing-files/storeArtifacts:
-#     artifactsPath: artifacts
-#     requires:
-#       - Get Pick And Place Positions
-#       - Generate Gerber files
