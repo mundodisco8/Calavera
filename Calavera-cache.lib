@@ -67,20 +67,6 @@ X 1 1 0 0 0 R 50 50 1 1 O
 ENDDRAW
 ENDDEF
 #
-# Calavera_Jumper
-#
-DEF Calavera_Jumper J 0 0 N N 1 F N
-F0 "J" 100 50 50 H V C CNN
-F1 "Calavera_Jumper" 0 -50 50 H V C CNN
-F2 "" 0 0 50 H I C CNN
-F3 "" 0 0 50 H I C CNN
-DRAW
-A 0 -100 141 1350 450 0 1 0 N -100 0 100 0
-X 1 1 -150 0 50 R 50 50 1 1 U
-X 1 1 150 0 50 L 50 50 1 1 U
-ENDDRAW
-ENDDEF
-#
 # Calavera_Mask
 #
 DEF Calavera_Mask G 0 40 Y Y 1 F N

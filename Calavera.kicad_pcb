@@ -34,7 +34,7 @@
   )
 
   (setup
-    (last_trace_width 0.5)
+    (last_trace_width 0.25)
     (user_trace_width 0.16)
     (user_trace_width 0.2)
     (user_trace_width 0.25)
@@ -7947,7 +7947,7 @@
       (xy 4.169635 0.319155) (xy 4.177933 0.307862) (xy 4.225172 0.248619) (xy 4.337225 0.383601)) (layer F.Mask) (width 0.01))
   )
 
-  (gr_text "DRC ERRORS\n=========\n\nThe two jumpers show an unconnected DRC error. That's a known issue\nwith KiCad. It will have to stay like that for now\n\nIMPORT NETLIST\n===========\n\nImportint the netlist shows two warnings for the copper\nplane. I wanted to leave them unconnected, so they \nwill have to stay, I guess" (at 162.8 78.7) (layer Dwgs.User)
+  (gr_text "IMPORT NETLIST\n===========\n\nImportint the netlist shows two warnings for the copper\nplane. I wanted to leave them unconnected, so they \nwill have to stay, I guess" (at 162.8 78.7) (layer Dwgs.User)
     (effects (font (size 0.5 0.5) (thickness 0.125)) (justify left))
   )
   (gr_line (start 132.175 91.075) (end 132.175 91.9) (layer B.SilkS) (width 0.5) (tstamp 5D526D1B))
@@ -7998,7 +7998,7 @@
   (segment (start 148.6 82.3) (end 150.05 83.75) (width 0.5) (layer B.Cu) (net 4))
   (segment (start 154.51 108.12) (end 154.51 103.56) (width 1) (layer B.Cu) (net 4))
   (segment (start 154.51 103.56) (end 154.51 101.24) (width 1) (layer B.Cu) (net 4))
-  (segment (start 143 97.375) (end 143 100.8) (width 1) (layer B.Cu) (net 4))
+  (segment (start 143 97.375) (end 143 100.8) (width 1) (layer B.Cu) (net 4) (status 10))
   (segment (start 145.76 103.56) (end 154.51 103.56) (width 1) (layer B.Cu) (net 4))
   (segment (start 143 100.8) (end 145.76 103.56) (width 1) (layer B.Cu) (net 4))
   (segment (start 129.65 99.66) (end 129.63 99.68) (width 0.25) (layer B.Cu) (net 5) (status 30))
@@ -8034,8 +8034,8 @@
   (segment (start 144.7 77.125) (end 146.025 77.125) (width 1) (layer B.Cu) (net 10) (status 10))
   (segment (start 146.725 77.825) (end 146.725 81.925) (width 1) (layer B.Cu) (net 10))
   (segment (start 146.025 77.125) (end 146.725 77.825) (width 1) (layer B.Cu) (net 10))
-  (segment (start 146.3 85.85) (end 147.45 84.7) (width 0.5) (layer B.Cu) (net 10))
-  (segment (start 134.55 84.625) (end 135.775 85.85) (width 0.5) (layer B.Cu) (net 10))
+  (segment (start 146.3 85.85) (end 147.45 84.7) (width 0.5) (layer B.Cu) (net 10) (status 20))
+  (segment (start 134.55 84.625) (end 135.775 85.85) (width 0.5) (layer B.Cu) (net 10) (status 10))
   (segment (start 135.775 85.85) (end 146.3 85.85) (width 0.5) (layer B.Cu) (net 10))
   (via (at 139.17 107.4) (size 0.6) (drill 0.4) (layers F.Cu B.Cu) (net 11) (tstamp 5D45E4B5) (status 30))
   (segment (start 139.225 107.4) (end 139.23 107.395) (width 0.25) (layer F.Cu) (net 11) (status 30))

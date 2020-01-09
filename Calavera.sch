@@ -757,44 +757,6 @@ F 3 "" H 7900 5900 50  0001 C CNN
 	1    7900 5900
 	1    0    0    -1  
 $EndComp
-$Comp
-L Calavera:Jumper J2
-U 1 1 5E17F6F3
-P 6900 5900
-F 0 "J2" V 6854 5969 50  0000 L CNN
-F 1 "Jumper" V 6945 5969 50  0000 L CNN
-F 2 "Calavera:Jumper-0805" H 6900 5900 50  0001 C CNN
-F 3 "" H 6900 5900 50  0001 C CNN
-	1    6900 5900
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	6900 5750 6900 5650
-Wire Wire Line
-	6900 6050 6900 6150
-Text GLabel 6900 5650 1    50   Input ~ 0
-VCC
-Text GLabel 6900 6150 3    50   Input ~ 0
-VCC
-$Comp
-L Calavera:Jumper J1
-U 1 1 5E186C8E
-P 6500 5900
-F 0 "J1" V 6454 5969 50  0000 L CNN
-F 1 "Jumper" V 6545 5969 50  0000 L CNN
-F 2 "Calavera:Jumper-0805" H 6500 5900 50  0001 C CNN
-F 3 "" H 6500 5900 50  0001 C CNN
-	1    6500 5900
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	6500 5750 6500 5650
-Wire Wire Line
-	6500 6050 6500 6150
-Text GLabel 6500 5650 1    50   Input ~ 0
-VJ1
-Text GLabel 6500 6150 3    50   Input ~ 0
-VJ1
 Text GLabel 7800 1400 0    50   Input ~ 0
 VJ1
 $EndSCHEMATC
