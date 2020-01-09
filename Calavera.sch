@@ -1,6 +1,6 @@
 EESchema Schematic File Version 4
 LIBS:Calavera-cache
-EELAYER 29 0
+EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -701,13 +701,13 @@ Wire Wire Line
 Wire Wire Line
 	6750 4200 6750 4300
 Text GLabel 3100 3600 1    50   Input ~ 0
-VLEDK
+VLEDK1
 Text GLabel 3750 3600 1    50   Input ~ 0
-VLEDK
+VLEDK2
 Text GLabel 6100 4300 3    50   Input ~ 0
-VLEDK
+VLEDK1
 Text GLabel 6750 4300 3    50   Input ~ 0
-VLEDK
+VLEDK2
 Text Notes 5700 700  0    50   ~ 10
 Fade In/Out
 Wire Wire Line
@@ -741,7 +741,7 @@ U 1 1 5D5CCE2E
 P 8800 5900
 F 0 "G3" H 9150 5400 60  0001 C CNN
 F 1 "Mask" H 9200 6450 60  0001 C CNN
-F 2 "Calavera:Calavera_SolderMask_1200dpi" H 8800 5900 50  0001 C CNN
+F 2 "Calavera:Calavera_SolderMask_1200dpi_Border" H 8800 5900 50  0001 C CNN
 F 3 "" H 8800 5900 50  0001 C CNN
 	1    8800 5900
 	1    0    0    -1  
@@ -757,4 +757,44 @@ F 3 "" H 7900 5900 50  0001 C CNN
 	1    7900 5900
 	1    0    0    -1  
 $EndComp
+$Comp
+L Calavera:Jumper J2
+U 1 1 5E17F6F3
+P 6900 5900
+F 0 "J2" V 6854 5969 50  0000 L CNN
+F 1 "Jumper" V 6945 5969 50  0000 L CNN
+F 2 "Calavera:Jumper-0805" H 6900 5900 50  0001 C CNN
+F 3 "" H 6900 5900 50  0001 C CNN
+	1    6900 5900
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6900 5750 6900 5650
+Wire Wire Line
+	6900 6050 6900 6150
+Text GLabel 6900 5650 1    50   Input ~ 0
+VCC
+Text GLabel 6900 6150 3    50   Input ~ 0
+VCC
+$Comp
+L Calavera:Jumper J1
+U 1 1 5E186C8E
+P 6500 5900
+F 0 "J1" V 6454 5969 50  0000 L CNN
+F 1 "Jumper" V 6545 5969 50  0000 L CNN
+F 2 "Calavera:Jumper-0805" H 6500 5900 50  0001 C CNN
+F 3 "" H 6500 5900 50  0001 C CNN
+	1    6500 5900
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6500 5750 6500 5650
+Wire Wire Line
+	6500 6050 6500 6150
+Text GLabel 6500 5650 1    50   Input ~ 0
+VJ1
+Text GLabel 6500 6150 3    50   Input ~ 0
+VJ1
+Text GLabel 7800 1400 0    50   Input ~ 0
+VJ1
 $EndSCHEMATC
