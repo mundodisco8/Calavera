@@ -610,7 +610,7 @@ P 3850 3900
 F 0 "Q1" H 4050 3900 50  0000 L CNN
 F 1 "Q_DUAL_NMOS" H 4050 3800 50  0001 L CNN
 F 2 "Calavera:SOT23-6-NMOSx2_Handsolder" H 4600 3750 50  0001 C CNN
-F 3 "https://assets.nexperia.com/documents/data-sheet/NX138BKS.pdf" H 4050 3900 50  0001 C CNN
+F 3 "https://www.diodes.com/assets/Datasheets/ds30937.pdf" H 4050 3900 50  0001 C CNN
 	2    3850 3900
 	-1   0    0    -1  
 $EndComp
@@ -621,8 +621,8 @@ P 3000 3900
 F 0 "Q1" H 3200 3900 50  0000 L CNN
 F 1 "Q_DUAL_NMOS" H 3200 3900 50  0001 L CNN
 F 2 "Calavera:SOT23-6-NMOSx2_Handsolder" H 3750 3750 50  0001 C CNN
-F 3 "https://assets.nexperia.com/documents/data-sheet/NX138BKS.pdf" H 3200 3900 50  0001 C CNN
-F 4 "NX138BKS" H 3000 3900 50  0001 C CNN "MPN"
+F 3 "https://www.diodes.com/assets/Datasheets/ds30937.pdf" H 3200 3900 50  0001 C CNN
+F 4 "DMN2004DMK" H 3000 3900 50  0001 C CNN "MPN"
 	1    3000 3900
 	1    0    0    -1  
 $EndComp
