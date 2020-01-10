@@ -1,11 +1,11 @@
-(module SOIC-8_Dual_OpAmp_Handsolder (layer F.Cu) (tedit 5D88D547)
+(module SOIC-8_Dual_OpAmp (layer F.Cu) (tedit 5E1888FB)
   (descr "8-Lead Plastic Small Outline (SN) - Narrow, 3.90 mm Body [SOIC] (see Microchip Packaging Specification http://ww1.microchip.com/downloads/en/PackagingSpec/00000049BQ.pdf)")
   (tags "SOIC 1.27")
   (attr smd)
   (fp_text reference REF** (at 0 -3.5) (layer F.SilkS)
     (effects (font (size 1 1) (thickness 0.15)))
   )
-  (fp_text value SOIC-8_Dual_OpAmp_Handsolder (at 0 3.5) (layer F.Fab)
+  (fp_text value SOIC-8_Dual_OpAmp (at 0 3.5) (layer F.Fab)
     (effects (font (size 1 1) (thickness 0.15)))
   )
   (fp_circle (center -3.2 -2.8) (end -3.05 -2.8) (layer F.SilkS) (width 0.6))
@@ -91,7 +91,7 @@
   (pad 3 smd roundrect (at -2.7 0.635) (size 1.55 0.6) (layers F.Cu F.Paste F.Mask) (roundrect_rratio 0.25))
   (pad 2 smd roundrect (at -2.7 -0.635) (size 1.55 0.6) (layers F.Cu F.Paste F.Mask) (roundrect_rratio 0.25))
   (pad 1 smd rect (at -2.7 -1.905) (size 1.55 0.6) (layers F.Cu F.Paste F.Mask))
-  (model ":Project_Specific_3D_Models:SOIC-8 v3.step"
+  (model "${KIPRJMOD}/library/3D_Models/SOIC-8 v3.step"
     (at (xyz 0 0 0))
     (scale (xyz 1 1 1))
     (rotate (xyz 0 0 0))

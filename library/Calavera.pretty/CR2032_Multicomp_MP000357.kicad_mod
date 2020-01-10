@@ -1,4 +1,4 @@
-(module CR2032_Multicomp_MP000357 (layer F.Cu) (tedit 5D456305)
+(module CR2032_Multicomp_MP000357 (layer F.Cu) (tedit 5E1888D2)
   (fp_text reference REF** (at 13 10.4) (layer F.SilkS)
     (effects (font (size 1 1) (thickness 0.15)))
   )
@@ -68,7 +68,7 @@
   (pad + smd roundrect (at 12.95 0) (size 5.2 5.2) (layers F.Cu F.Paste F.Mask) (roundrect_rratio 0.048))
   (pad + smd roundrect (at -12.95 0) (size 5.2 5.2) (layers F.Cu F.Paste F.Mask) (roundrect_rratio 0.048))
   (pad - smd roundrect (at 0 0) (size 4 4) (layers F.Cu F.Mask) (roundrect_rratio 0.062))
-  (model ":Project_Specific_3D_Models:Battery Holder - CR2032 - Multicomp MP000357 v5.step"
+  (model "${KIPRJMOD}/library/3D_Models/Battery Holder - CR2032 - Multicomp MP000357 v5.step"
     (at (xyz 0 0 0))
     (scale (xyz 1 1 1))
     (rotate (xyz 0 0 0))

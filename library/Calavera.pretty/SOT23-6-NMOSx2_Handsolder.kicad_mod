@@ -1,4 +1,4 @@
-(module SOT23-6-NMOSx2_Handsolder (layer F.Cu) (tedit 5E1883C4)
+(module SOT23-6-NMOSx2_Handsolder (layer F.Cu) (tedit 5E18896D)
   (fp_text reference REF** (at 0 2.8) (layer F.SilkS)
     (effects (font (size 1 1) (thickness 0.15)))
   )
@@ -94,7 +94,7 @@
   (pad D2 smd roundrect (at -1.4 0.95) (size 1.1 0.6) (layers F.Cu F.Paste F.Mask) (roundrect_rratio 0.25))
   (pad G1 smd roundrect (at -1.4 0) (size 1.1 0.6) (layers F.Cu F.Paste F.Mask) (roundrect_rratio 0.25))
   (pad S1 smd rect (at -1.4 -0.95) (size 1.1 0.6) (layers F.Cu F.Paste F.Mask))
-  (model ":Project_Specific_3D_Models:SOT23-6 v6.step"
+  (model "${KIPRJMOD}/library/3D_Models/SOT23-6 v6.step"
     (at (xyz 0 0 0))
     (scale (xyz 1 1 1))
     (rotate (xyz 0 0 0))
