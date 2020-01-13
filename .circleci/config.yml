@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  kicadcd: mundodisco8/kicad-manufacturing-files@dev:19_10_24
+  kicadcd: mundodisco8/kicad-manufacturing-files@dev:20_01_13
 
 workflows:
   createFabricationOutputsAndStore:
