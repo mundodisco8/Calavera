@@ -1,6 +1,11 @@
 # Calavera Badge
 
-We wanted to run a "lunch and learn" day at the company I used to work about soldering. I always liked [Protopic's Day of the Geek Soldering Badge](https://www.proto-pic.co.uk/day-of-the-geek-badge/), but it only turns two LEDs on when you slide the battery, and I thought that my mates would need a bit more than a couple of LEDs to be able to say that they know how to solder, so I thought on modifying. I checked around but it seems the project is not open source, so I decided to ~blatantly copy~ get inspired by them.
+We wanted to run a "lunch and learn" day at the company I used to work about soldering. I always liked [Protopic's Day of the Geek Soldering Badge](https://www.proto-pic.co.uk/day-of-the-geek-badge/), but it only turns two LEDs on when you slide the battery, and I thought that my mates would need a bit more than a couple of LEDs to be able to say that they know how to solder, so I thought on modifying. I checked around but it seems the project is not open source, so I decided to ~~blatantly copy~~ get inspired by them.
+
+<p float="left">
+  <img src="support/img/Calavera_Border_Front_Full.png" width="500" />
+  <img src="support/img/Calavera_Border_Back_Full.png" width="500" />
+</p>
 
 So here I was, thinking how to improve it, if I should go nuts or keep it simple. Danny, what should I do? should I go simple?
 
