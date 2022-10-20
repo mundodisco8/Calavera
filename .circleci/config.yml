@@ -1,5 +1,12 @@
 version: 2.1
 
+jobs:
+  deploy-job:
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "bd:df:47:c0:07:3e:25:ab:09:83:1b:d1:67:9f:22:91"
+
 orbs:
   kicadcd: mundodisco8/kicad-manufacturing-files@0.1.0
 
