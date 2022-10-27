@@ -1,3 +1,3 @@
 (sym_lib_table
-  (lib (name Calavera)(type Legacy)(uri ${KIPRJMOD}/library/Calavera.lib)(options "")(descr ""))
+  (lib (name "Calavera")(type "KiCad")(uri "${KIPRJMOD}/library/Calavera.kicad_sym")(options "")(descr ""))
 )
