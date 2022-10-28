@@ -20,6 +20,8 @@ The schematic includes instructions on pretty much everything, so I recommend ch
 
 Turns out the badge is a bit overkill. It took me around 30 minutes to do one, and a colleague that has never soldered took something around 2-3h to finish it.
 
+![ups!](https://media.giphy.com/media/yEtv1wWZpmG2s/giphy.gif)
+
 I was testing Cadlab when I was doing this project, you can view this project [here](https://cadlab.io/project/2044).
 
 ## Variants
@@ -32,15 +34,15 @@ You can find the original SVG used for the art, as well as some SVGs I used to
 
 ## Known Issues / To Do:
 
-* Add a slider switch to kill the power, so the battery is not drained when it's sitting in a drawer.
 * Tweak the cap touch pad / circuitry. Right now the cap touch feature is not very reliable. The values are the standard ones provided in the datasheet. A bit of experimenting could make it more reliable, but who has time for that, right?
 
 ## Acknowledgements
 
+* [Terayza](https://github.com/Terayza) for her invaluable help.
 * Protopic for doing their Day of the Geek soldering badge. Theirs is infinitely nicer than mine.
 * The graphic on the top silkscreen / soldermask is taken from [Freepik](www.freepik.com).
 * [The SVG2Shenzhen plugin.](https://github.com/badgeek/svg2shenzhen)
-* My mate Danny, for being so nice.
+* My mate Danny DV, for being so nice and lending his image for this readme.
 
 ## Changelog
 
@@ -61,3 +63,12 @@ Slightly improved version (untested, not produced).
 * Increased the track width.
 * Made the border slightly thinner, I think? I don't remember. Probably.
 * Isolated the ground plane from the copper pour, because I suspect that it will improve the touch response, but I have no idea if it will work.
+
+### v0.3.0
+
+Slightly improved version (untested, not produced).
+
+* Changed the double NMOS for a single one. Package is the "same" than v0.2.0 (SOT23), but having only 3 pins should make it way simpler to solder. We don't drive current, so we don't need two transistors.
+* Cleaned the track layout
+* Added a switch so you can fully turn it off when not in use.
+* Added a couple of good practices from [ST's AN4312](https://www.st.com/resource/en/application_note/dm00087990-design-with-surface-sensors-for-touch-sensing-applications-on-mcus-stmicroelectronics.pdf). Hatched the ground below the pad and made its trace to the sensor thinner. Planes connected to ground which increases the parasitic capacitance on the cap sensor (bad) but it's better than a floating plane as it was before (worse).

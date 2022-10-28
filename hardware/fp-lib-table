@@ -1,3 +1,4 @@
 (fp_lib_table
-  (lib (name Calavera)(type KiCad)(uri ${KIPRJMOD}/library/Calavera.pretty)(options "")(descr ""))
+  (lib (name "Calavera")(type "KiCad")(uri "${KIPRJMOD}/library/Calavera.pretty")(options "")(descr ""))
+  (lib (name "Snowflake")(type "KiCad")(uri "C:/Users/joel.santos/OneDrive - Brompton Bicycle Ltd/Desktop/Snowflake/hardware/Snowflake_library/Snowflake.pretty")(options "")(descr ""))
 )

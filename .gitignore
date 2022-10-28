@@ -13,6 +13,8 @@ _autosave-*
 *-save.kicad_pcb
 fp-info-cache
 
+Calavera-backups
+
 # Netlist files (exported from Eeschema)
 *.net
 
@@ -20,3 +22,4 @@ fp-info-cache
 *.dsn
 *.ses
 *.sch-bak
+
