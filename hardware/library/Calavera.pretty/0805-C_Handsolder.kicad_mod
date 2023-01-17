@@ -6,7 +6,7 @@
     (effects (font (size 1 1) (thickness 0.15)))
     (tstamp e072ca93-23cb-49dc-8e68-323bc1f0b872)
   )
-  (fp_text value "C" (at 0 1.25) (layer "F.SilkS")
+  (fp_text value "C" (at 0 1.25) (layer "F.Fab")
     (effects (font (size 0.5 0.5) (thickness 0.125)))
     (tstamp 44b59cd0-07df-40a4-bacd-3dc4e7e24f9e)
   )
