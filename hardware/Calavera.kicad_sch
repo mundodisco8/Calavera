@@ -4,6 +4,13 @@
 
   (paper "A4")
 
+  (title_block
+    (title "Calavera Badge")
+    (date "${TODAY}")
+    (rev "v0.3.0")
+    (comment 1 "Files generated from commit ${GIT_HASH}")
+  )
+
   (lib_symbols
     (symbol "Calavera:AT42QT1012" (pin_names (offset 1.016)) (in_bom yes) (on_board yes)
       (property "Reference" "U" (id 0) (at 3.81 -7.62 0)
@@ -18038,7 +18045,7 @@
       (property "Datasheet" "" (id 3) (at 0 0 0)
         (effects (font (size 1.27 1.27)) hide)
       )
-      (property "ki_keywords" "power-flag" (id 4) (at 0 0 0)
+      (property "ki_keywords" "global power" (id 4) (at 0 0 0)
         (effects (font (size 1.27 1.27)) hide)
       )
       (property "ki_description" "Power symbol creates a global label with name \"GND\" , ground" (id 5) (at 0 0 0)
@@ -18078,7 +18085,7 @@
       (property "Datasheet" "~" (id 3) (at 0 0 0)
         (effects (font (size 1.27 1.27)) hide)
       )
-      (property "ki_keywords" "power-flag" (id 4) (at 0 0 0)
+      (property "ki_keywords" "flag power" (id 4) (at 0 0 0)
         (effects (font (size 1.27 1.27)) hide)
       )
       (property "ki_description" "Special symbol for telling ERC where power comes from" (id 5) (at 0 0 0)
@@ -18118,7 +18125,7 @@
       (property "Datasheet" "" (id 3) (at 0 0 0)
         (effects (font (size 1.27 1.27)) hide)
       )
-      (property "ki_keywords" "power-flag" (id 4) (at 0 0 0)
+      (property "ki_keywords" "global power" (id 4) (at 0 0 0)
         (effects (font (size 1.27 1.27)) hide)
       )
       (property "ki_description" "Power symbol creates a global label with name \"VCC\"" (id 5) (at 0 0 0)
@@ -18158,6 +18165,7 @@
       )
     )
   )
+
 
   (junction (at 187.96 31.75) (diameter 0) (color 0 0 0 0)
     (uuid 25ca3860-fbb5-40e9-8446-198be538e4c2)
@@ -18590,6 +18598,11 @@
     (effects (font (size 1.27 1.27) (thickness 0.254) bold) (justify left bottom))
     (uuid 252ee1d5-62f8-4ebc-b790-40fe96d84471)
   )
+  (text "Current limiting resistor values\ndepend on the LED used"
+    (at 151.13 112.395 90)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid 3064e60c-72ee-4947-9b73-43f8018556bb)
+  )
   (text "Jumper" (at 21.59 81.28 0)
     (effects (font (size 1.27 1.27) (thickness 0.254) bold) (justify left bottom))
     (uuid 44808e41-5875-4559-82ca-dd99d899bee4)
@@ -18777,13 +18790,13 @@
     (uuid 00000000-0000-0000-0000-00005d36f6bf)
     (property "Reference" "U1" (id 0) (at 74.93 55.88 0))
     (property "Value" "AT42QT1012" (id 1) (at 78.74 58.42 0))
-    (property "Footprint" "Calavera:SOT23-6-AT42QT1012_Handsolder" (id 2) (at 71.12 48.26 0)
+    (property "Footprint" "Calavera:SOT23-6-AT42QT1012" (id 2) (at 71.12 48.26 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "http://ww1.microchip.com/downloads/en/devicedoc/40001948a.pdf" (id 3) (at 71.12 48.26 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "MPN" "AT42QT1012-TSHR " (id 4) (at 71.12 48.26 0)
+    (property "MPN" "AT42QT1012-TSHR" (id 4) (at 71.12 48.26 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Manufacturer " "MicroChip" (id 5) (at 71.12 48.26 0)
@@ -18809,7 +18822,7 @@
     (property "Value" "HeartPad" (id 1) (at 34.29 41.91 0)
       (effects (font (size 1.524 1.524)) hide)
     )
-    (property "Footprint" "Calavera:Calavera_Cap_Pad" (id 2) (at 34.29 45.72 0)
+    (property "Footprint" "Calavera:Cap_Pad" (id 2) (at 34.29 45.72 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 34.29 45.72 0)
@@ -18996,7 +19009,7 @@
     (property "Reference" "R5" (id 0) (at 156.6672 90.2716 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "R_Small_US" (id 1) (at 156.6672 92.583 0)
+    (property "Value" "RΩ" (id 1) (at 156.6672 92.583 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "Calavera:0805-R_Handsolder" (id 2) (at 154.94 91.44 0)
@@ -19015,7 +19028,7 @@
     (property "Reference" "R6" (id 0) (at 173.1772 90.2716 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "R_Small_US" (id 1) (at 173.1772 92.583 0)
+    (property "Value" "RΩ" (id 1) (at 173.1772 92.583 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "Calavera:0805-R_Handsolder" (id 2) (at 171.45 91.44 0)
@@ -19546,7 +19559,7 @@
     (property "Footprint" "Calavera:SOT-23_NMOS_DMN65D8L" (id 2) (at 81.28 96.52 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "https://www.diodes.com/assets/Datasheets/DMN65D8L.pdf" (id 3) (at 76.2 99.06 0)
+    (property "Datasheet" "~" (id 3) (at 76.2 99.06 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Digikey PN" "DMN65D8L-7DICT-ND" (id 4) (at 76.2 99.06 0)
@@ -19578,7 +19591,7 @@
     (property "Footprint" "Calavera:Slider_Switch_C&K_AYZ0102AGRLC_SPDT_RightAngle" (id 2) (at 243.84 96.52 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "https://www.ckswitches.com/media/1431/ayz.pdf" (id 3) (at 243.84 96.52 0)
+    (property "Datasheet" "~" (id 3) (at 243.84 96.52 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "MPN" "AYZ0102AGRLC" (id 4) (at 243.84 96.52 0)
@@ -19670,7 +19683,7 @@
       (reference "D2") (unit 1) (value "LED_Small_ALT") (footprint "Calavera:LED_D3.0mm_ThroughHole")
     )
     (path "/00000000-0000-0000-0000-00005d3703e7"
-      (reference "G1") (unit 1) (value "HeartPad") (footprint "Calavera:Calavera_Cap_Pad")
+      (reference "G1") (unit 1) (value "HeartPad") (footprint "Calavera:Cap_Pad")
     )
     (path "/00000000-0000-0000-0000-00005d5d7396"
       (reference "G2") (unit 1) (value "Edge") (footprint "Calavera:Calavera_Board_Margins")
@@ -19703,10 +19716,10 @@
       (reference "R4") (unit 1) (value "180kΩ") (footprint "Calavera:0805-R_Handsolder")
     )
     (path "/00000000-0000-0000-0000-00005d409c2b"
-      (reference "R5") (unit 1) (value "R_Small_US") (footprint "Calavera:0805-R_Handsolder")
+      (reference "R5") (unit 1) (value "RΩ") (footprint "Calavera:0805-R_Handsolder")
     )
     (path "/00000000-0000-0000-0000-00005d40a0ac"
-      (reference "R6") (unit 1) (value "R_Small_US") (footprint "Calavera:0805-R_Handsolder")
+      (reference "R6") (unit 1) (value "RΩ") (footprint "Calavera:0805-R_Handsolder")
     )
     (path "/00000000-0000-0000-0000-00005d45762a"
       (reference "R7") (unit 1) (value "1200Ω") (footprint "Calavera:0805-R_Handsolder")
@@ -19724,7 +19737,7 @@
       (reference "SW1") (unit 1) (value "SW_SPDT") (footprint "Calavera:Slider_Switch_C&K_AYZ0102AGRLC_SPDT_RightAngle")
     )
     (path "/00000000-0000-0000-0000-00005d36f6bf"
-      (reference "U1") (unit 1) (value "AT42QT1012") (footprint "Calavera:SOT23-6-AT42QT1012_Handsolder")
+      (reference "U1") (unit 1) (value "AT42QT1012") (footprint "Calavera:SOT23-6-AT42QT1012")
     )
     (path "/00000000-0000-0000-0000-00005d4485a3"
       (reference "U2") (unit 1) (value "LMV932") (footprint "Calavera:SOIC-8_Dual_OpAmp_Handsolder")

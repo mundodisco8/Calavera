@@ -5,7 +5,7 @@
 *.000
 *.bak
 *.bck
-*.kicad_pcb-bak
+*.*-bak
 *~
 _autosave-*
 *.tmp
@@ -23,3 +23,9 @@ Calavera-backups
 *.ses
 *.sch-bak
 
+# Kibot files
+Artifacts/**
+*.ogv
+*.log
+Calavera-[de]rc.txt
+kibot*

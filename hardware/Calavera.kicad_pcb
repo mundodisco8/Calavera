@@ -5,6 +5,13 @@
   )
 
   (paper "A4")
+  (title_block
+    (title "Calavera Badge")
+    (date "${TODAY}")
+    (rev "v0.3.0")
+    (comment 1 "Files Generated from commit $GIT_HASH")
+  )
+
   (layers
     (0 "F.Cu" signal)
     (31 "B.Cu" signal)
@@ -79,6 +86,9 @@
       (outputdirectory "gerbers/")
     )
   )
+
+  (property "GIT_HASH" "<To be filled by KiBot>")
+  (property "TODAY" "<To be filled by KiBot>")
 
   (net 0 "")
   (net 1 "Net-(C1-Pad1)")

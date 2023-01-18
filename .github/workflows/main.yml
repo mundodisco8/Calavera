@@ -1,0 +1,41 @@
+name: Generate Manufacture Artifacts
+
+on:
+  push:
+    paths:
+    - '**.sch'
+    - '**.kicad_pcb'
+    - '**.yml'
+    - '**.yaml'
+  pull_request:
+    paths:
+      - '**.sch'
+      - '**.kicad_pcb'
+      - '**.yml'
+      - '**.yaml'
+
+jobs:
+  example:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: INTI-CMNB/KiBot@v2_k6
+      with:
+        # Required - kibot config file
+        config: ArtifactCreation.kibot.yaml
+        # optional - prefix to output defined in config
+        dir: Artifacts
+        # optional - schematic file
+        schema: 'hardware/Calavera.kicad_sch'
+        # optional - PCB design file
+        board: 'hardware/Calavera.kicad_pcb'
+    - name: upload all Artifacts as a single Zip
+      uses: actions/upload-artifact@v3
+      with:
+        name: Artifacts
+        path: Artifacts
+    - name: upload just the gerbers as a single Zip
+      uses: actions/upload-artifact@v3
+      with:
+        name: Gerbers
+        path: Artifacts/Calavera-Compressed_Gerbers.zip
