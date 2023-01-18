@@ -2,9 +2,9 @@
 <export version="E">
   <design>
     <source>/mnt/c/Users/joel.santos/OneDrive - Brompton Bicycle Ltd/Desktop/Calavera/hardware/Calavera.kicad_sch</source>
-    <date>Wed Jan 18 16:02:59 2023</date>
+    <date>Wed Jan 18 16:20:40 2023</date>
     <tool>Eeschema 6.0.10-86aedd382b~118~ubuntu22.04.1</tool>
-    <textvar name="GIT_HASH">&lt;198969b&gt;</textvar>
+    <textvar name="GIT_HASH">&lt;e958c79&gt;</textvar>
     <textvar name="TODAY">2023-01-18</textvar>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -13,7 +13,7 @@
         <rev>v0.3.0</rev>
         <date>2023-01-18</date>
         <source>Calavera.kicad_sch</source>
-        <comment number="1" value="Files generated from commit &lt;198969b&gt;"/>
+        <comment number="1" value="Files generated from commit &lt;e958c79&gt;"/>
         <comment number="2" value=""/>
         <comment number="3" value=""/>
         <comment number="4" value=""/>
