@@ -39,4 +39,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: Gerbers
-        path: Artifacts/Calavera-Compressed_Gerbers.zip
+        path: Artifacts/Gerbers
