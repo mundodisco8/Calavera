@@ -29,7 +29,7 @@ jobs:
         schema: 'hardware/Calavera.kicad_sch'
         # optional - PCB design file
         board: 'hardware/Calavera.kicad_pcb'
-        verbose: 3
+        verbose: 1
     - name: upload all Artifacts as a single Zip
       uses: actions/upload-artifact@v3
       with:
