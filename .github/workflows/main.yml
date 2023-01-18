@@ -24,7 +24,7 @@ jobs:
         # Required - kibot config file
         config: ArtifactCreation.kibot.yaml
         # optional - prefix to output defined in config
-        dir: Artifacts
+        # dir: Artifacts
         # optional - schematic file
         schema: 'hardware/Calavera.kicad_sch'
         # optional - PCB design file
