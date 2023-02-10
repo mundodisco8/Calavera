@@ -3,14 +3,18 @@ name: Generate Manufacture Artifacts
 on:
   push:
     paths:
-    - '**.sch'
+    - '**.kicad_sch'
     - '**.kicad_pcb'
+    - '**.kicad_sym'
+    - '**.kicad_mod'
     - '**.yml'
     - '**.yaml'
   pull_request:
     paths:
-      - '**.sch'
+      - '**.kicad_sch'
       - '**.kicad_pcb'
+      - '**.kicad_sym'
+      - '**.kicad_mod'
       - '**.yml'
       - '**.yaml'
 

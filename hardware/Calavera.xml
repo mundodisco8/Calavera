@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <export version="E">
   <design>
-    <source>/mnt/c/Users/joel.santos/OneDrive - Brompton Bicycle Ltd/Desktop/Calavera/hardware/Calavera.kicad_sch</source>
-    <date>Wed Jan 18 16:20:40 2023</date>
+    <source>/mnt/c/Users/joel.santos/OneDrive - Brompton Bicycle Ltd/Desktop/Calavera/Hardware/Calavera.kicad_sch</source>
+    <date>Tue Jan 31 09:25:58 2023</date>
     <tool>Eeschema 6.0.10-86aedd382b~118~ubuntu22.04.1</tool>
-    <textvar name="GIT_HASH">&lt;e958c79&gt;</textvar>
-    <textvar name="TODAY">2023-01-18</textvar>
+    <textvar name="GIT_HASH">&lt;&gt;</textvar>
+    <textvar name="TODAY">2023-01-31</textvar>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
         <title>Calavera Badge</title>
         <company/>
         <rev>v0.3.0</rev>
-        <date>2023-01-18</date>
+        <date>2023-01-31</date>
         <source>Calavera.kicad_sch</source>
-        <comment number="1" value="Files generated from commit &lt;e958c79&gt;"/>
+        <comment number="1" value="Files generated from commit &lt;&gt;"/>
         <comment number="2" value=""/>
         <comment number="3" value=""/>
         <comment number="4" value=""/>
@@ -493,7 +493,7 @@
   </libparts>
   <libraries>
     <library logical="Calavera">
-      <uri>/mnt/c/Users/joel.santos/OneDrive - Brompton Bicycle Ltd/Desktop/Calavera/hardware/library/Calavera.kicad_sym</uri>
+      <uri>/mnt/c/Users/joel.santos/OneDrive - Brompton Bicycle Ltd/Desktop/Calavera/Hardware/library/Calavera.kicad_sym</uri>
     </library>
     <library logical="Device">
       <uri>/usr/share/kicad/symbols//Device.kicad_sym</uri>

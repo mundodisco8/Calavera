@@ -103,7 +103,7 @@ preflight:
   # The KiCad project file is modified.
   set_text_variables:
     - name: 'GIT_HASH'
-      command: 'git log -1 --format="%h" "$KIBOT_PCB_NAME"'
+      command: 'git log -1 --format="%h" $KIBOT_PCB_NAME'
       before: '<'
       after: '>'
     - name: 'TODAY'
