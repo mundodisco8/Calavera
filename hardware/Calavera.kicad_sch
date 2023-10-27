@@ -24788,7 +24788,7 @@
     (property "Reference" "H1" (at 220.98 93.98 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "Ø2mm" (at 219.71 96.52 0)
+    (property "Value" "Ø1.75mm" (at 219.71 96.52 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "Calavera:MountingHole_1.75mm" (at 222.25 100.33 0)
