@@ -1,0 +1,40 @@
+##########################################################################################
+# Generates a PDF with the Schematic
+#
+
+outputs:
+
+##########################################################################################
+# PDF Schematic Print (Portable Document Format):
+# This is the main format to document your schematic.
+# This output is what you get from the 'File/Plot' menu in eeschema.
+# If you use custom fonts and/or colors please consult the `resources_dir` global variable.
+  - name: 'pdf_sch_print_example'
+    comment: 'Exports the schematic in PDF.'
+    type: 'pdf_sch_print'
+    dir: 'Artifacts/Schematic'
+    options:
+      # [boolean=true] Generate with all hierarchical sheets
+      all_pages: true
+      # [boolean=false] Use the background color from the `color_theme` (KiCad 6)
+      background_color: false
+      # [string=''] Color theme used, this must exist in the KiCad config (KiCad 6)
+      color_theme: ''
+      # [string|list(string)='_none'] Name of the filter to mark components as not fitted.
+      # A short-cut to use for simple cases where a variant is an overkill
+      dnf_filter: '_none'
+      # [boolean=true] Include the frame and title block
+      frame: true
+      # [boolean=false] Generate a monochromatic output
+      monochrome: false
+      # [string='%f-%i%I%v.%x'] Filename for the output PDF (%i=schematic, %x=pdf). Affected by global options
+      output: '%f-%i%I%v.%x'
+      # [string|list(string)='_none'] Name of the filter to transform fields before applying other filters.
+      # A short-cut to use for simple cases where a variant is an overkill
+      pre_transform: '_none'
+      # [string=''] Text used to replace the sheet title. %VALUE expansions are allowed.
+      # If it starts with `+` the text is concatenated
+      title: ''
+      # [string=''] Board variant to apply.
+      # Not fitted components are crossed
+      variant: ''

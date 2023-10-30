@@ -2,9 +2,14 @@
 
 We wanted to run a "lunch and learn" day at the company I used to work about soldering. I always liked [Protopic's Day of the Geek Soldering Badge](https://www.proto-pic.co.uk/day-of-the-geek-badge/), but it only turns two LEDs on when you slide the battery, and I thought that my mates would need a bit more than a couple of LEDs to be able to say that they know how to solder, so I thought on modifying. I checked around but it seems the project is not open source, so I decided to ~~blatantly copy~~ get inspired by them.
 
-<p float="left">
-  <img src="Support/img/Calavera_Border_Front_Full.png" width="500" />
-  <img src="Support/img/Calavera_Border_Back_Full.png" width="500" />
+<p float="center">
+  <img src="Support/img/Calavera-3D_blenderTop.png" height="400" />
+  <img src="Support/img/Calavera-3D_blenderTopSlanted.png" width="400" />
+</p>
+
+<p float="center">
+  <img src="Support/img/Calavera-3D_blenderBottom.png" height="400" />
+  <img src="Support/img/Calavera-3D_blenderBottomSlanted.png" width="400" />
 </p>
 
 So here I was, thinking how to improve it, if I should go nuts or keep it simple. Danny, what should I do? should I go simple?
@@ -46,17 +51,23 @@ You can find the original SVG used for the art, as well as some SVGs I used to
 
 ## Changelog
 
-### v0.1.0
+### v0.3.1-RC1 -
 
-First version of this board. It works 💃🎉🚀🦼! But not very well 💣🥦...
+* Moved the project to KiCad 7, and took the opportunity to tweak some footprints and the art.
+* Made the touch area a bit bigger.
 
-* Cap touch is hit and miss. I think that the fact that the border is exposed and tied to ground makes that when you hold it, you mess with the electric field. The whole subcircuit might need a makeover.
-* The tracks are very thin and can be ripped up by a young padawan.
-* The transistor footprint is devilishly difficult to solder even for an experienced Jedi.
+### v0.3.0 (untested, never produced) - 28th October 2022
 
-### v0.2.0
+Slightly improved version.
 
-Slightly improved version (untested, not produced).
+* Changed the double NMOS for a single one. Package is the "same" than v0.2.0 (SOT23), but having only 3 pins should make it way simpler to solder. We don't drive current, so we don't need two transistors.
+* Cleaned the track layout
+* Added a switch so you can fully turn it off when not in use.
+* Added a couple of good practices from [ST's AN4312](https://www.st.com/resource/en/application_note/dm00087990-design-with-surface-sensors-for-touch-sensing-applications-on-mcus-stmicroelectronics.pdf). Hatched the ground below the pad and made its trace to the sensor thinner. Planes connected to ground which increases the parasitic capacitance on the cap sensor (bad) but it's better than a floating plane as it was before (worse).
+
+### v0.2.0 (untested, never produced) - 10th January 2020
+
+Slightly improved version.
 
 * Cleaned the folder structure. Now all the parts are in the same library, and all the 3D models are relatively referenced to the project path.
 * Changed the transistor to a SOT23. Should be easier to solder.
@@ -64,11 +75,10 @@ Slightly improved version (untested, not produced).
 * Made the border slightly thinner, I think? I don't remember. Probably.
 * Isolated the ground plane from the copper pour, because I suspect that it will improve the touch response, but I have no idea if it will work.
 
-### v0.3.0
+### v0.1.0 - 23rd September 2019
 
-Slightly improved version (untested, not produced).
+First version of this board. It works 💃🎉🚀🦼! But not very well 💣🥦...
 
-* Changed the double NMOS for a single one. Package is the "same" than v0.2.0 (SOT23), but having only 3 pins should make it way simpler to solder. We don't drive current, so we don't need two transistors.
-* Cleaned the track layout
-* Added a switch so you can fully turn it off when not in use.
-* Added a couple of good practices from [ST's AN4312](https://www.st.com/resource/en/application_note/dm00087990-design-with-surface-sensors-for-touch-sensing-applications-on-mcus-stmicroelectronics.pdf). Hatched the ground below the pad and made its trace to the sensor thinner. Planes connected to ground which increases the parasitic capacitance on the cap sensor (bad) but it's better than a floating plane as it was before (worse).
+* Cap touch is hit and miss. I think that the fact that the border is exposed and tied to ground makes that when you hold it, you mess with the electric field. The whole subcircuit might need a makeover.
+* The tracks are very thin and can be ripped up by a young padawan.
+* The transistor footprint is devilishly difficult to solder even for an experienced Jedi.

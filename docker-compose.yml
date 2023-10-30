@@ -1,0 +1,19 @@
+version: '3'
+services:
+  CalaveraDev:
+    image: ghcr.io/inti-cmnb/kicad7_auto_full:dev
+    container_name: CalaveraKiBotDev
+    command: /bin/bash
+    working_dir: /Calavera
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    volumes:
+      # Project will be mounted on /Calavera
+      - .:/Calavera
+      # The KiCost Cache, so we have access to previous searches and tokens
+      - C:\Users\joel.santos\.cache:/root/.cache
+      # Some KiCad crap, to reduce the number of warnings
+      - C:\Users\joel.santos\AppData\Roaming\kicad\7.0\:/root/.config/kicad/7.0/
+      - C:\Program Files\KiCad\7.0\share\kicad\template:/root/kicad/template
+    # environment:
+    #   MYSQL_HOST: localhost

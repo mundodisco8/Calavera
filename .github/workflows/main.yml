@@ -2,45 +2,57 @@ name: Generate Manufacture Artifacts
 
 on:
   push:
+    branches:
+      - master
+      - v0.3.1
     paths:
-    - '**.kicad_sch'
-    - '**.kicad_pcb'
-    - '**.kicad_sym'
-    - '**.kicad_mod'
-    - '**.yml'
-    - '**.yaml'
+    # Changes on kicad eeschema or board
+    - '**/**.kicad_@(sch|pcb)'
+    # changes on any yml file
+    - '**/**.y*(a)ml'
   pull_request:
     paths:
-      - '**.kicad_sch'
-      - '**.kicad_pcb'
-      - '**.kicad_sym'
-      - '**.kicad_mod'
-      - '**.yml'
-      - '**.yaml'
+      # Changes on kicad eeschema or board
+    - '**/**.kicad_@(sch|pcb)'
+    # changes on any yml or yaml file
+    - '**/**.y*(a)ml'
 
 jobs:
-  example:
+  KiBotCICD:
     runs-on: ubuntu-latest
+    env:
+      CI_COMMIT_MESSAGE: Continuous Integration Build Artifacts
+      CI_COMMIT_AUTHOR: Github Actions
     steps:
-    - uses: actions/checkout@v3
-    - uses: INTI-CMNB/KiBot@v2_k6
-      with:
-        # Required - kibot config file
-        config: ArtifactCreation.kibot.yaml
-        # optional - prefix to output defined in config
-        # dir: Artifacts
-        # optional - schematic file
-        schema: 'hardware/Calavera.kicad_sch'
-        # optional - PCB design file
-        board: 'hardware/Calavera.kicad_pcb'
-        verbose: 1
-    - name: upload all Artifacts as a single Zip
-      uses: actions/upload-artifact@v3
-      with:
-        name: Artifacts
-        path: Artifacts
-    - name: upload just the gerbers as a single Zip
-      uses: actions/upload-artifact@v3
-      with:
-        name: Gerbers
-        path: Artifacts/Gerbers
+      - name: Checkout Step
+        uses: actions/checkout@v4
+      # # In case we want to SSH into the machine
+      # - name: Setup upterm session
+      #   uses: lhotari/action-upterm@v1
+      - name: KiBot does its thing
+        uses: INTI-CMNB/KiBot@v2_dk7
+        with:
+          # Required - kibot config file
+          config: ArtifactCreation.kibot.yaml
+          # optional - prefix to output defined in config
+          dir: Artifacts
+          # optional - schematic file
+          schema: 'hardware/LED_Dimmer.kicad_sch'
+          # optional - PCB design file
+          board: 'hardware/LED_Dimmer.kicad_pcb'
+      - name: upload results
+        uses: actions/upload-artifact@v3
+        with:
+          name: Artifacts
+          path: Artifacts
+      - name: push changes to repo
+        if: ${{ github.ref == 'refs/heads/master'}}
+        run: |
+          mkdir -p support/img
+          cp Artifacts/Artifacts/BlenderRender/*.png support/img/
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          # so far only changes in the support folder need to be pushed back
+          git add support
+          git commit -m "${{ env.CI_COMMIT_MESSAGE }}"
+          git push
