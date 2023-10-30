@@ -51,7 +51,7 @@ You can find the original SVG used for the art, as well as some SVGs I used to
 
 ## Changelog
 
-### v0.3.1-RC1 -
+### v0.3.1-RC1 - 30th October 2023
 
 * Moved the project to KiCad 7, and took the opportunity to tweak some footprints and the art.
 * Made the touch area a bit bigger.

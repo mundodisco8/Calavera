@@ -2,20 +2,22 @@ name: Generate Manufacture Artifacts
 
 on:
   push:
-    # branches:
-    #   - master
-    #   - v0.3.1
-    # paths:
-    # # Changes on kicad eeschema or board
-    # - '**/**.kicad_@(sch|pcb)'
-    # # changes on any yml file
-    # - '**/**.y*(a)ml'
-  # pull_request:
-    # paths:
-    #   # Changes on kicad eeschema or board
-    # - '**/**.kicad_@(sch|pcb)'
-    # # changes on any yml or yaml file
-    # - '**/**.y*(a)ml'
+    branches:
+      - master
+      - v0.3.1
+    paths:
+    # Changes on kicad eeschema or board
+    - '**/**.kicad_sch'
+    - '**/**.kicad_pcb'
+    # changes on any yml file
+    - '**/**.ya?ml'
+  pull_request:
+    paths:
+    # Changes on kicad eeschema or board
+    - '**/**.kicad_sch'
+    - '**/**.kicad_pcb'
+    # changes on any yml file
+    - '**/**.ya?ml'
 
 jobs:
   KiBotCICD:
@@ -34,12 +36,10 @@ jobs:
         with:
           # Required - kibot config file
           config: ArtifactCreation.kibot.yaml
-          # optional - prefix to output defined in config
-          dir: Artifacts
           # optional - schematic file
-          schema: 'hardware/LED_Dimmer.kicad_sch'
+          schema: 'hardware/Calavera.kicad_sch'
           # optional - PCB design file
-          board: 'hardware/LED_Dimmer.kicad_pcb'
+          board: 'hardware/Calavera.kicad_pcb'
       - name: upload results
         uses: actions/upload-artifact@v3
         with:
@@ -49,7 +49,7 @@ jobs:
         if: ${{ github.ref == 'refs/heads/master'}}
         run: |
           mkdir -p support/img
-          cp Artifacts/Artifacts/BlenderRender/*.png support/img/
+          cp Artifacts/BlenderRender/*.png support/img/
           git config user.name github-actions
           git config user.email github-actions@github.com
           # so far only changes in the support folder need to be pushed back
