@@ -1,0 +1,64 @@
+##########################################################################################
+# Move files
+#
+# This action will move some files from the Artifacts folder to some other places:
+# * Move new renders to the readme img folder, so they can be pushed by another github action
+
+outputs:
+
+# Files copier:
+# Useful when an external tool is used to compress the output directory.
+# Note that you can use the `compress` output to create archives
+  - name: 'Copy_Renders_To_Readme_img'
+    comment: "Copy Renders to the Readme's support folder"
+    type: 'copy_files'
+    dir: '.'
+    options:
+      # [string|list(string)='_none'] Name of the filter to mark components as not fitted.
+      # A short-cut to use for simple cases where a variant is an overkill
+      # dnf_filter: '_none'
+      # [boolean=true] Downloads missing 3D models from KiCad git.
+      # Only applies to models in KISYS3DMOD and KICAD6_3DMODEL_DIR.
+      # They are downloaded to a temporal directory and discarded.
+      # If you want to cache the downloaded files specify a directory using the
+      # KIBOT_3D_MODELS environment variable
+      # download: true
+      # [list(dict)] Which files will be included
+      files:
+        # [string=''] Destination directory inside the output dir, empty means the same of the file
+        # relative to the source directory.
+        # For the `3d_models` type you can use DIR+ to create subdirs under DIR
+        - dest: 'support/img/'
+          # [string='.*'] A regular expression that source files must match
+          # filter: '(\.png)'
+          # [boolean=false] Only usable for the `3d_models` mode.
+          # Save a PCB copy modified to use the copied 3D models
+          # save_pcb: false
+          # [string='*'] File names to add, wildcards allowed. Use ** for recursive match.
+          # By default this pattern is applied to the current working dir.
+          # See the `from_outdir` option
+          source: 'Artifacts/BlenderRender/*.png'
+          # [string='files'] [files,out_files,output,3d_models] How to interpret `source`.
+          # `files`: is a pattern for files relative to the working directory.
+          # `out_files`: is a pattern for files relative to output dir specified
+          # with `-d` command line option.
+          # `output`: is the name of an `output`.
+          # `3d_models`: is a pattern to match the name of the 3D models extracted
+          # from the PCB.
+          source_type: 'files'
+      # [boolean=true] Store the file pointed by symlinks, not the symlink
+      follow_links: true
+      # [string='https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/'] Base URL for the KiCad 3D models
+      # kicad_3d_url: 'https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/'
+      # [string=''] Text added to the end of the download URL.
+      # Can be used to pass variables to the GET request, i.e. ?VAR1=VAL1&VAR2=VAL2
+      # kicad_3d_url_suffix: ''
+      # [boolean=false] Create symlinks instead of copying files
+      # link_no_copy: false
+      # [boolean=false] Used to exclude 3D models for components with 'virtual' attribute
+      # no_virtual: false
+      # [string|list(string)='_none'] Name of the filter to transform fields before applying other filters.
+      # A short-cut to use for simple cases where a variant is an overkill
+      # pre_transform: '_none'
+      # [string=''] Board variant to apply
+      # variant: ''

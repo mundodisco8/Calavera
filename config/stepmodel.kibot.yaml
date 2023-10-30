@@ -1,0 +1,48 @@
+##########################################################################################
+# Generates the 3D model of the board as STEP
+
+
+outputs:
+
+##########################################################################################
+# STEP (ISO 10303-21 Clear Text Encoding of the Exchange Structure):
+# This is the most common 3D format for exchange purposes.
+# This output is what you get from the 'File/Export/STEP' menu in pcbnew.
+  - name: 'Generate_STEP_Model'
+    comment: 'Exports the PCB as a 3D model.'
+    type: 'step'
+    dir: 'Artifacts/3D_Model'
+    options:
+      # [string|list(string)='_none'] Name of the filter to mark components as not fitted.
+      # A short-cut to use for simple cases where a variant is an overkill
+      dnf_filter: '_none'
+      # [boolean=true] Downloads missing 3D models from KiCad git.
+      # Only applies to models in KISYS3DMOD and KICAD6_3DMODEL_DIR.
+      # They are downloaded to a temporal directory and discarded.
+      # If you want to cache the downloaded files specify a directory using the
+      # KIBOT_3D_MODELS environment variable
+      download: true
+      # [string='https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/'] Base URL for the KiCad 3D models
+      kicad_3d_url: 'https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/'
+      # [string=''] Text added to the end of the download URL.
+      # Can be used to pass variables to the GET request, i.e. ?VAR1=VAL1&VAR2=VAL2
+      kicad_3d_url_suffix: ''
+      # [boolean=true] Use metric units instead of inches
+      metric_units: true
+      # [number=-1] The minimum distance between points to treat them as separate ones (-1 is KiCad default: 0.01 mm)
+      min_distance: -1
+      # [boolean=false] Used to exclude 3D models for components with 'virtual' attribute
+      no_virtual: false
+      # [string='grid'] Determines the coordinates origin. Using grid the coordinates are the same as you have in the design sheet.
+      # The drill option uses the auxiliary reference defined by the user.
+      # You can define any other origin using the format 'X,Y', i.e. '3.2,-10'
+      origin: 'grid'
+      # [string='%f-%i%I%v.%x'] Name for the generated STEP file (%i='3D' %x='step'). Affected by global options
+      output: '%f-%i%I%v.%x'
+      # [string|list(string)='_none'] Name of the filter to transform fields before applying other filters.
+      # A short-cut to use for simple cases where a variant is an overkill
+      pre_transform: '_none'
+      # [boolean=true] Substitute STEP or IGS models with the same name in place of VRML models
+      subst_models: true
+      # [string=''] Board variant to apply
+      variant: ''

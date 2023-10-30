@@ -1,19 +1,31 @@
 # For PCBs designed using KiCad: http://www.kicad-pcb.org/
 # Format documentation: http://kicad-pcb.org/help/file-formats/
 
+## Kibot - Artifacts
+**/Artifacts/**
+kibot_errors.filter
+*-erc.txt
+*-drc.txt
+*.log
+*.ogv
+# My KiCost config file with Keys on it
+kicost_WITH_KEYS_DO_NOT_COMMIT.yaml
+
 # Temporary files
 *.000
-*.bak
+*.*bak
 *.bck
+*.sch-bak
 *.kicad_pcb-bak
 *~
 _autosave-*
 *.tmp
+*-cache.lib
+*-rescue.lib
 *-save.pro
 *-save.kicad_pcb
-fp-info-cache
-
-Calavera-backups
+hardware/**-backups/**
+*.lck
 
 # Netlist files (exported from Eeschema)
 *.net
@@ -21,5 +33,8 @@ Calavera-backups
 # Autorouter files (exported from Pcbnew)
 *.dsn
 *.ses
-*.sch-bak
 
+# Fabrication Outputs: gerbers / boms / etc
+*.xml
+*.csv
+hardware/Snowflake-backups/**

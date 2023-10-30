@@ -1,0 +1,364 @@
+##########################################################################################
+# Generates a Bill of Materilas using KiCad's BoM
+#
+# Exports some definitions
+#
+#   @BOMOUTPUTDIR@
+#   The output dir where to store the BoM
+#
+#   @BOMFORMAT@
+#   [string=''] [HTML,CSV,TXT,TSV,XML,XLSX,HRTXT] format for the BoM.
+#
+# Usage:
+#   import:
+#     - file: bom.kibot.yaml
+#       definitions:
+#         BOMOUTPUTDIR: 'Artifacts/BoM'
+#         BOMFORMAT: 'CSV'
+
+outputs:
+
+##########################################################################################
+# BoM (Bill of Materials):
+# This output can generate XYRS files (pick and place files).
+# Is compatible with KiBoM, but doesn't need to update the XML netlist because the components
+# are loaded from the schematic.
+# Important differences with KiBoM output:
+# - All options are in the main `options` section, not in `conf` subsection.
+# - The `Component` column is named `Row` and works just like any other column.
+# This output is what you get from the 'Tools/Generate Bill of Materials' menu in eeschema.
+  - name: 'BoM_In_CSV'
+    comment: 'Used to generate the BoM in CSV format using the internal BoM.'
+    type: 'bom'
+    dir: '@BOMOUTPUTDIR@'
+    options:
+      # # [list(dict)] Add components from other projects.
+      # # You can use CSV files, the first row must contain the names of the fields.
+      # # The `Reference` and `Value` are mandatory, in most cases `Part` is also needed.
+      # # The `Part` column should contain the name/type of the component. This is important for
+      # # passive components (R, L, C, etc.). If this information isn't available consider
+      # # configuring the grouping to exclude the `Part`.
+      # # aggregate:
+      # #   # [string=','] Delimiter used for CSV files
+      # #   - delimiter: ','
+      # #     # [string=''] Name of the schematic to aggregate
+      # #     file: ''
+      # #     # [string=''] Name to identify this source. If empty we use the name of the schematic
+      # #     name: ''
+      # #     # [number=1] Number of boards to build (components multiplier). Use negative to subtract
+      # #     number: 1
+      # #     # [string=''] A prefix to add to all the references from this project
+      # #     ref_id: ''
+      # [boolean=true] Always use positive values for the footprint rotation
+      angle_positive: true
+      # [boolean=false] Use negative X coordinates for footprints on bottom layer (for XYRS)
+      bottom_negative_x: false
+      # [list(dict)|list(string)] List of columns to display.
+      # Can be just the name of the field
+      columns:
+      #   # [string=''] Used as explanation for this column. The XLSX output uses it
+      #   - comment: ''
+      #     # [string=''] Name of the field to use for this column
+      #     field: 'Row'
+      #     # [list(dict)|list(string)|string=''] List of fields to join to this column
+      #     join:
+      #       # [string=''] Name of the field
+      #       - field: 'Voltage'
+      #         # [string=''] Text to use instead of a field. This option is incompatible with the `field` option.
+      #         # Any space to separate it should be added in the text.
+      #         # Use \n for newline and \t for tab
+      #         text: ''
+      #         # [string=''] Text to add after the field content. Will be added only if the field isn't empty.
+      #         # Any space to separate it should be added in the text.
+      #         # Use \n for newline and \t for tab
+      #         text_after: ''
+      #         # [string=''] Text to add before the field content. Will be added only if the field isn't empty.
+      #         # Any space to separate it should be added in the text.
+      #         # Use \n for newline and \t for tab
+      #         text_before: ''
+      #     # [number=0] Used to group columns. The XLSX output uses it to collapse columns
+      #     level: 0
+      #     # [string=''] Name to display in the header. The field is used when empty
+      #     name: 'Line'
+        - field: "Row"
+        - field: "References"
+        - field: "Value"
+        - field: "Quantity Per PCB"
+        - field: "Description"
+        - comment: "A column joining all the ratings"
+          field: "Tolerance"
+          name: "Ratings"
+          join:
+            - field: "TempCoef"
+              text_before : " / "
+            - field: "Vrating"
+              text_before : " / "
+        - field: "MPN"
+        - field: "Manufacturer"
+        - field: "Digikey PN"
+        - field: "Farnell PN"
+        - field: "Datasheet"
+        - field: "Comments"
+      # [list(list(string))] A series of values which are considered to be equivalent for the part name.
+      # Each entry is a list of equivalen names. Example: ['c', 'c_small', 'cap' ]
+      # will ensure the equivalent capacitor symbols can be grouped together.
+      # If empty the following aliases are used:
+      # - ['r', 'r_small', 'res', 'resistor']
+      # - ['l', 'l_small', 'inductor']
+      # - ['c', 'c_small', 'cap', 'capacitor']
+      # - ['sw', 'switch']
+      # - ['zener', 'zenersmall']
+      # - ['d', 'diode', 'd_small']
+      component_aliases: [['r', 'r_small', 'res', 'resistor'], ['l', 'l_small', 'inductor'], ['c', 'c_small', 'cap', 'capacitor'], ['sw', 'switch'], ['zener', 'zenersmall'], ['d', 'diode', 'd_small']]
+      # # [list(dict)|list(string)] List of columns to add to the global section of the cost.
+      # # Can be just the name of the field
+      # cost_extra_columns:
+      #   # [string=''] Used as explanation for this column. The XLSX output uses it
+      #   - comment: ''
+      #     # [string=''] Name of the field to use for this column
+      #     field: 'Row'
+      #     # [list(dict)|list(string)|string=''] List of fields to join to this column
+      #     join:
+      #       # [string=''] Name of the field
+      #       - field: 'Voltage'
+      #         # [string=''] Text to use instead of a field. This option is incompatible with the `field` option.
+      #         # Any space to separate it should be added in the text.
+      #         # Use \n for newline and \t for tab
+      #         text: ''
+      #         # [string=''] Text to add after the field content. Will be added only if the field isn't empty.
+      #         # Any space to separate it should be added in the text.
+      #         # Use \n for newline and \t for tab
+      #         text_after: ''
+      #         # [string=''] Text to add before the field content. Will be added only if the field isn't empty.
+      #         # Any space to separate it should be added in the text.
+      #         # Use \n for newline and \t for tab
+      #         text_before: ''
+      #     # [number=0] Used to group columns. The XLSX output uses it to collapse columns
+      #     level: 0
+      #     # [string=''] Name to display in the header. The field is used when empty
+      #     name: 'Line'
+      # [boolean=false] Show the stats about how many of the components are SMD/THT. You must provide the PCB
+      count_smd_tht: false
+      # [dict] Options for the CSV, TXT and TSV formats
+      csv:
+        # [boolean=false] Hide the header line (names of the columns)
+        hide_header: false
+        # [boolean=false] Hide project information
+        hide_pcb_info: false
+        # [boolean=false] Hide statistics information
+        hide_stats_info: false
+        # [boolean=false] Enclose all values using double quotes
+        quote_all: false
+        # [string=','] CSV Separator. TXT and TSV always use tab as delimiter.
+        # Only one character can be specified
+        separator: ','
+      # [string|list(string)] Include this distributors list. Default is all the available
+      distributors:
+        - Digi-Key
+      # [string|list(string)='_kibom_dnc'] Name of the filter to mark components as 'Do Not Change'.
+      # The default filter marks components with a DNC value or DNC in the Config field.
+      # This option is for simple cases, consider using a full variant for complex cases
+      dnc_filter: '_kibom_dnc'
+      # [string|list(string)='_kibom_dnf'] Name of the filter to mark components as 'Do Not Fit'.
+      # The default filter marks components with a DNF value or DNF in the Config field.
+      # This option is for simple cases, consider using a full variant for complex cases
+      dnf_filter: '_kibom_dnf'
+      # [string|list(string)='_mechanical'] Name of the filter to exclude components from BoM processing.
+      # The default filter excludes test points, fiducial marks, mounting holes, etc.
+      # This option is for simple cases, consider using a full variant for complex cases
+      exclude_filter: '_mechanical'
+      # [boolean=false] Exclude components marked with *Exclude from BOM* in the PCB.
+      # This is a KiCad 6 option
+      exclude_marked_in_pcb: false
+      # [boolean=true] Exclude components marked with *Exclude from bill of materials* in the schematic.
+      # This is a KiCad 6 option
+      exclude_marked_in_sch: true
+      # [boolean=true] Expand KiCad 6 text variables after applying all filters and variants.
+      # This is done using a **_expand_text_vars** filter.
+      # If you need to customize the filter, or apply it before, you can disable this option and
+      # add a custom filter to the filter chain
+      expand_text_vars: true
+      # [string='Config'] Field name used for internal filters (not for variants)
+      fit_field: 'Config'
+      # [string|list(string)='no,yes'] Values for the `Footprint Populate` column
+      footprint_populate_values: 'no,yes'
+      # [string|list(string)='SMD,THT,VIRTUAL'] Values for the `Footprint Type` column
+      footprint_type_values: 'SMD,THT,VIRTUAL'
+      # [string=''] [HTML,CSV,TXT,TSV,XML,XLSX,HRTXT] format for the BoM.
+      # Defaults to CSV or a guess according to the options.
+      # HRTXT stands for Human Readable TeXT
+      format: '@BOMFORMAT@'
+      # [boolean=true] Connectors with the same footprints will be grouped together, independent of the name of the connector
+      group_connectors: true
+      # [list(string)] List of fields used for sorting individual components into groups.
+      # Components which match (comparing *all* fields) will be grouped together.
+      # Field names are case-insensitive.
+      # If empty: ['Part', 'Part Lib', 'Value', 'Footprint', 'Footprint Lib',
+      #            'Voltage', 'Tolerance', 'Current', 'Power'] is used
+      group_fields: ['part', 'part lib', 'value', 'footprint', 'footprint lib', 'voltage', 'tolerance', 'current', 'power']
+      # [list(string)] List of fields to be used when the fields in `group_fields` are empty.
+      # The first field in this list is the fallback for the first in `group_fields`, and so on
+      # group_fields_fallbacks:
+      # [dict] Options for the HRTXT formats
+      hrtxt:
+        # [string='-'] Separator between the header and the data
+        header_sep: '-'
+        # [boolean=false] Hide the header line (names of the columns)
+        hide_header: false
+        # [boolean=false] Hide project information
+        hide_pcb_info: false
+        # [boolean=false] Hide statistics information
+        hide_stats_info: false
+        # [string='left'] [left,right,center] Text justification
+        justify: 'left'
+        # [string='I'] Column Separator
+        separator: 'I'
+      # [dict] Options for the HTML format
+      # html:
+      #   # [boolean=true] Use colors to show the field type
+      #   col_colors: true
+      #   # [string=''] Column with links to the datasheet
+      #   datasheet_as_link: ''
+      #   # [string|list(string)=''] Column/s containing Digi-Key part numbers, will be linked to web page
+      #   digikey_link: ''
+      #   # [string|list(string)=''] Information to put after the title and before the pcb and stats info
+      #   extra_info: ''
+      #   # [boolean=true] Generate a separated section for DNF (Do Not Fit) components
+      #   generate_dnf: true
+      #   # [boolean=false] Hide project information
+      #   hide_pcb_info: false
+      #   # [boolean=false] Hide statistics information
+      #   hide_stats_info: false
+      #   # [boolean=true] Use a color for empty cells. Applies only when `col_colors` is `true`
+      #   highlight_empty: true
+      #   # [string|boolean=''] PNG file to use as logo, use false to remove
+      #   logo: ''
+      #   # [string|list(string)=''] Column/s containing Mouser part numbers, will be linked to web page
+      #   mouser_link: ''
+      #   # [string='modern-blue'] Page style. Internal styles: modern-blue, modern-green, modern-red and classic.
+      #   # Or you can provide a CSS file name. Please use .css as file extension.
+      #   style: 'modern-blue'
+      #   # [string='KiBot Bill of Materials'] BoM title
+      #   title: 'KiBot Bill of Materials'
+      # [boolean=true] Exclude DNF (Do Not Fit) components
+      ignore_dnf: true
+      # [boolean=true] Component quantities are always expressed as integers. Using the ceil() function
+      int_qtys: true
+      # [boolean=true] Component groups with blank fields will be merged into the most compatible group, where possible
+      merge_blank_fields: true
+      # [boolean=true] When creating groups two components with empty/missing field will be interpreted as with the same value
+      merge_both_blank: true
+      # [list(string)] List of fields where we tolerate conflicts.
+      # Use it to avoid undesired warnings.
+      # By default the field indicated in `fit_field`, the field used for variants and
+      # the field `part` are excluded
+      no_conflict: ['Config', 'Part']
+      # [string|list(string)] Exclude this distributors list. They are removed after computing `distributors`
+      # no_distributors:
+      # [boolean=false] When normalizing values use the locale decimal point
+      normalize_locale: false
+      # [boolean=false] Try to normalize the R, L and C values, producing uniform units and prefixes
+      normalize_values: false
+      # [number=1] Number of boards to build (components multiplier)
+      number: 10
+      # [string='%f-%i%I%v.%x'] filename for the output (%i=bom). Affected by global options
+      output: '%f-%i%I%v.%x'
+      # [string|list(string)='_none'] Name of the filter to transform fields before applying other filters.
+      # This option is for simple cases, consider using a full variant for complex cases
+      pre_transform: '_none'
+      # [string=''] A prefix to add to all the references from this project. Used for multiple projects
+      ref_id: ''
+      # [string=' '] Separator used for the list of references
+      ref_separator: ' '
+      # [string='type_value'] [type_value,type_value_ref,ref] Sorting criteria
+      sort_style: 'type_value'
+      # [boolean=false] Generate the `Source BoM` column using the reference ID instead of the project name
+      source_by_id: false
+      # [string='millimeters'] [millimeters,inches,mils] Units used for the positions ('Footprint X' and 'Footprint Y' columns).
+      # Affected by global options
+      units: 'millimeters'
+      # [boolean=false] Print grouped references in the alternate compressed style eg: R1-R7,R18
+      use_alt: true
+      # [boolean=true] Use the auxiliary axis as origin for coordinates (KiCad default) (for XYRS)
+      use_aux_axis_as_origin: true
+      # [string=''] Board variant, used to determine which components
+      # are output to the BoM.
+      variant: ''
+      # [dict] Options for the XLSX format
+      xlsx:
+        # [boolean=true] Use colors to show the field type
+        col_colors: true
+        # [string=''] Column with links to the datasheet
+        datasheet_as_link: ''
+        # [string|list(string)=''] Column/s containing Digi-Key part numbers, will be linked to web page
+        digikey_link: ''
+        # [string|list(string)=''] Information to put after the title and before the pcb and stats info
+        extra_info: ''
+        # [boolean=true] Generate a separated section for DNF (Do Not Fit) components
+        generate_dnf: true
+        # [boolean=false] Hide project information
+        hide_pcb_info: false
+        # [boolean=false] Hide statistics information
+        hide_stats_info: false
+        # [boolean=true] Use a color for empty cells. Applies only when `col_colors` is `true`
+        highlight_empty: true
+        # [boolean=false] Enable KiCost worksheet creation
+        kicost: true
+        # [string|list(string)=''] List of KiCost APIs to disable
+        kicost_api_disable:
+          - KitSpace
+        # [string|list(string)=''] List of KiCost APIs to enable
+        kicost_api_enable:
+          - Digi-Key
+        # [string=''] KiCost configuration file. It contains the keys for the different distributors APIs.
+        # The regular KiCost config is used when empty.
+        # Important for CI/CD environments: avoid exposing your API secrets!
+        # To understand how to achieve this, and also how to make use of the cache please visit the
+        # [kicost_ci_test](https://github.com/set-soft/kicost_ci_test) repo
+        kicost_config: 'kicost_WITH_KEYS_DO_NOT_COMMIT.yaml'
+        # [boolean=false] Used to add a column with the distributor's description. So you can check this is the right component
+        kicost_dist_desc: false
+        # [string|boolean=''] PNG file to use as logo, use false to remove
+        logo: ''
+        # [number=2] Scaling factor for the logo. Note that this value isn't honored by all spreadsheet software
+        logo_scale: 2
+        # [number=60] [20,999] Maximum column width (characters)
+        max_col_width: 60
+        # [string|list(string)=''] Column/s containing Mouser part numbers, will be linked to web page
+        mouser_link: ''
+        # [boolean=false] Enable Specs worksheet creation. Contains specifications for the components.
+        # Works with only some KiCost APIs
+        specs: true
+        # [list(dict)|list(string)] Which columns are included in the Specs worksheet. Use `References` for the references,
+        # 'Row' for the order and 'Sep' to separate groups at the same level. By default all are included.
+        # Column names are distributor specific, the following aren't: '_desc', '_value', '_tolerance', '_footprint',
+        # '_power', '_current', '_voltage', '_frequency', '_temp_coeff', '_manf', '_size'
+        specs_columns:
+          # [string=''] Used as explanation for this column. The XLSX output uses it
+          - comment: ''
+            # [string=''] Name of the field to use for this column
+            field: 'Row'
+            # [list(dict)|list(string)|string=''] List of fields to join to this column
+            join:
+              # [string=''] Name of the field
+              - field: 'Voltage'
+                # [string=''] Text to use instead of a field. This option is incompatible with the `field` option.
+                # Any space to separate it should be added in the text.
+                # Use \n for newline and \t for tab
+                text: ''
+                # [string=''] Text to add after the field content. Will be added only if the field isn't empty.
+                # Any space to separate it should be added in the text.
+                # Use \n for newline and \t for tab
+                text_after: ''
+                # [string=''] Text to add before the field content. Will be added only if the field isn't empty.
+                # Any space to separate it should be added in the text.
+                # Use \n for newline and \t for tab
+                text_before: ''
+            # [number=0] Used to group columns. The XLSX output uses it to collapse columns
+            level: 0
+            # [string=''] Name to display in the header. The field is used when empty
+            name: 'Line'
+        # [string='modern-blue'] Head style: modern-blue, modern-green, modern-red and classic
+        style: 'modern-blue'
+        # [string='KiBot Bill of Materials'] BoM title
+        title: 'KiBot Bill of Materials'

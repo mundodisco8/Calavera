@@ -1,0 +1,112 @@
+##########################################################################################
+# Generates the sentcil and all the jigs required, using the KiKit system
+#
+# It can generate both "metal" stencils and 3D printable ones.
+# The Alignment Jig is not included, but can be found here: https://a360.co/3iiFXKp
+
+outputs:
+
+##########################################################################################
+# Steel Stencils for Alignment Jig:
+# These stencils are designed to be used with an acrilic alignment jig and a 3D
+# printable support, that is also generated.
+# [KiKit docs](https://github.com/yaqwsx/KiKit/blob/master/doc/stencil.md).
+# Note that we don't implement `--ignore` option, you should use a variant for this
+  - name: 'stencil_for_jig_example'
+    comment: 'Creates the gerber files needed to create steel stencils.'
+    type: 'stencil_for_jig'
+    dir: 'Artifacts/Stencil_for_Jig'
+    options:
+      # [boolean=true] Creates a PNG showing the generated 3D model
+      create_preview: true
+      # [string|list(string)] List of components to add a cutout based on the component courtyard.
+      # This is useful when you have already pre-populated board and you want to populate more
+      # components
+      cutout: ''
+      # [string|list(string)='_none'] Name of the filter to mark components as not fitted.
+      # A short-cut to use for simple cases where a variant is an overkill
+      dnf_filter: '_none'
+      # [boolean=true] Include the generated OpenSCAD files
+      include_scad: true
+      # `jig_height` is an alias for `jigheight`
+      # `jig_thickness` is an alias for `jigthickness`
+      # `jig_width` is an alias for `jigwidth`
+      # [number=100] Jig frame height [mm]
+      jigheight: 100
+      # [number=3] Jig thickness [mm]
+      jigthickness: 3
+      # [number=100] Jig frame width [mm]
+      jigwidth: 100
+      # [string='%f-%i%I%v.%x'] Filename for the output (%i='stencil_for_jig_top'|'stencil_for_jig_bottom',
+      # %x='stl'|'scad'|'gbp'|'gtp'|'gbrjob'|'png'). Affected by global options
+      output: '%f-%i%I%v.%x'
+      # `pcb_thickness` is an alias for `pcbthickness`
+      # [number=0] PCB thickness [mm]. If 0 we will ask KiCad
+      pcbthickness: 0
+      # [string|list(string)='_none'] Name of the filter to transform fields before applying other filters.
+      # A short-cut to use for simple cases where a variant is an overkill
+      pre_transform: '_none'
+      # `register_border_inner` is an alias for `registerborderinner`
+      # `register_border_outer` is an alias for `registerborderouter`
+      # [number=1] Inner register border [mm]
+      registerborderinner: 1
+      # [number=3] Outer register border [mm]
+      registerborderouter: 3
+      # [string='auto'] [top,bottom,auto,both] Which side of the PCB we want. Using `auto` will detect which
+      # side contains solder paste
+      side: 'top'
+      # [number=0.05] Enlarges the register by the tolerance value [mm]
+      tolerance: 0.05
+      # # [string=''] Board variant to apply
+      # variant: ''
+
+# ##########################################################################################
+# # 3D Printed Stencils:
+# # SLA printer, you can use it to apply solder paste to your PCB.
+# # These stencils are quick solution when you urgently need a stencil but probably
+# # they don't last long and might come with imperfections.
+# # It currently uses KiKit, so please read
+# # [KiKit docs](https://github.com/yaqwsx/KiKit/blob/master/doc/stencil.md).
+# # Note that we don't implement `--ignore` option, you should use a variant for this
+#   - name: 'stencil_3d_example'
+#     comment: 'Creates a 3D self-registering model of a stencil you can easily print on'
+#     type: 'stencil_3d'
+#     dir: 'Artifacts/3D_Printed_Stencil'
+#     options:
+#       # [boolean=true] Creates a PNG showing the generated 3D model
+#       create_preview: true
+#       # [string|list(string)] List of components to add a cutout based on the component courtyard.
+#       # This is useful when you have already pre-populated board and you want to populate more
+#       # components
+#       cutout: ''
+#       # [string|list(string)='_none'] Name of the filter to mark components as not fitted.
+#       # A short-cut to use for simple cases where a variant is an overkill
+#       dnf_filter: '_none'
+#       # `enlarge_holes` is an alias for `enlarge_holes`
+#       # [number=0] Enlarge pad holes by x mm
+#       enlargeholes: 0
+#       # `frame_clearance` is an alias for `frameclearance`
+#       # `frame_width` is an alias for `framewidth`
+#       # [number=0] Clearance for the stencil register [mm]
+#       frameclearance: 0
+#       # [number=1] Register frame width
+#       framewidth: 1
+#       # [boolean=true] Include the generated OpenSCAD files.
+#       # Note that this also includes the DXF files
+#       include_scad: true
+#       # [string='%f-%i%I%v.%x'] Filename for the output (%i='stencil_3d_top'|'stencil_3d_bottom'|'stencil_3d_edge',
+#       # %x='stl'|'scad'|'dxf'|'png'). Affected by global options
+#       output: '%f-%i%I%v.%x'
+#       # `pcb_thickness` is an alias for `pcbthickness`
+#       # [number=0] PCB thickness [mm]. If 0 we will ask KiCad
+#       pcbthickness: 0
+#       # [string|list(string)='_none'] Name of the filter to transform fields before applying other filters.
+#       # A short-cut to use for simple cases where a variant is an overkill
+#       pre_transform: '_none'
+#       # [string='auto'] [top,bottom,auto,both] Which side of the PCB we want. Using `auto` will detect which
+#       # side contains solder paste
+#       side: 'auto'
+#       # [number=0.15] Stencil thickness [mm]. Defines amount of paste dispensed
+#       thickness: 0.15
+#       # [string=''] Board variant to apply
+#       variant: ''

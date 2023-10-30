@@ -1,229 +1,354 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<export version="D">
+<export version="E">
   <design>
-    <source>C:\Users\Joel\Dropbox\KiCad\Calavera\Calavera.sch</source>
-    <date>18/10/2019 11:02:18</date>
-    <tool>Eeschema (5.1.4)-1</tool>
+    <source>/Calavera/hardware/Calavera.kicad_sch</source>
+    <date>Mon Oct 30 12:26:21 2023</date>
+    <tool>Eeschema 7.0.8-7.0.8~ubuntu23.04.1</tool>
+    <textvar name="GIT_HASH">&lt;ce9858e&gt;</textvar>
+    <textvar name="TODAY">2023-10-30</textvar>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
-        <title/>
+        <title>Calavera Badge</title>
         <company/>
-        <rev/>
-        <date/>
-        <source>Calavera.sch</source>
-        <comment number="1" value=""/>
+        <rev>v0.3.0</rev>
+        <date>2023-10-30</date>
+        <source>Calavera.kicad_sch</source>
+        <comment number="1" value="Files generated from commit &lt;ce9858e&gt;"/>
         <comment number="2" value=""/>
         <comment number="3" value=""/>
         <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
       </title_block>
     </sheet>
   </design>
   <components>
-    <comp ref="R1">
-      <value>10kΩ</value>
-      <footprint>felcana:0805-R_Handsolder</footprint>
-      <datasheet>~</datasheet>
-      <libsource lib="Device" part="R_Small_US" description="Resistor, small US symbol"/>
+    <comp ref="BT1">
+      <value>Battery_Cell</value>
+      <footprint>Calavera:CR2032_Keystone_3024</footprint>
+      <datasheet>https://www.farnell.com/datasheets/3764476.pdf</datasheet>
+      <fields>
+        <field name="Comments">Alternative part 3034TR is tape and reel, but it's also sold individually</field>
+        <field name="Digikey PN">36-3034-ND</field>
+        <field name="Farnell PN">2959382</field>
+        <field name="MPN">3034</field>
+        <field name="Manufacturer ">Keystone</field>
+      </fields>
+      <libsource lib="Calavera" part="Battery_Cell" description=""/>
+      <property name="MPN" value="3034"/>
+      <property name="Manufacturer " value="Keystone"/>
+      <property name="Comments" value="Alternative part 3034TR is tape and reel, but it's also sold individually"/>
+      <property name="Digikey PN" value="36-3034-ND"/>
+      <property name="Farnell PN" value="2959382"/>
+      <property name="Tolerance" value=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Calavera.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamp>5D36DDC5</tstamp>
+      <tstamps>00000000-0000-0000-0000-00005d40d199</tstamps>
     </comp>
     <comp ref="C1">
       <value>22nF</value>
-      <footprint>felcana:0805-C_Handsolder</footprint>
-      <datasheet>~</datasheet>
+      <footprint>Calavera:0805-C_Handsolder</footprint>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="Tolerance" value=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Calavera.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor, small symbol"/>
+      <property name="ki_keywords" value="capacitor cap"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamp>5D36EA34</tstamp>
-    </comp>
-    <comp ref="R2">
-      <value>1MΩ</value>
-      <footprint>felcana:0805-R_Handsolder</footprint>
-      <datasheet>~</datasheet>
-      <libsource lib="Device" part="R_Small_US" description="Resistor, small US symbol"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>5D36F147</tstamp>
-    </comp>
-    <comp ref="G1">
-      <value>HeartPad</value>
-      <footprint>Calavera:Cap_Pad</footprint>
-      <libsource lib="Calavera" part="HeartPad" description=""/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>5D3703E7</tstamp>
-    </comp>
-    <comp ref="R3">
-      <value>100kΩ</value>
-      <footprint>felcana:0805-R_Handsolder</footprint>
-      <datasheet>~</datasheet>
-      <libsource lib="Device" part="R_Small_US" description="Resistor, small US symbol"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>5D371B56</tstamp>
+      <tstamps>00000000-0000-0000-0000-00005d36ea34</tstamps>
     </comp>
     <comp ref="C2">
       <value>100nF</value>
-      <footprint>felcana:0805-C_Handsolder</footprint>
-      <datasheet>~</datasheet>
+      <footprint>Calavera:0805-C_Handsolder</footprint>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="Tolerance" value=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Calavera.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor, small symbol"/>
+      <property name="ki_keywords" value="capacitor cap"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamp>5D3731CD</tstamp>
-    </comp>
-    <comp ref="D1">
-      <value>LED_Small_ALT</value>
-      <footprint>LED_THT:LED_D3.0mm</footprint>
-      <datasheet>~</datasheet>
-      <libsource lib="Device" part="LED_ALT" description="Light emitting diode, filled shape"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>5D3F2819</tstamp>
-    </comp>
-    <comp ref="D2">
-      <value>LED_Small_ALT</value>
-      <footprint>LED_THT:LED_D3.0mm</footprint>
-      <datasheet>~</datasheet>
-      <libsource lib="Device" part="LED_ALT" description="Light emitting diode, filled shape"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>5D4043BC</tstamp>
-    </comp>
-    <comp ref="R4">
-      <value>R_Small_US</value>
-      <footprint>felcana:0805-R_Handsolder</footprint>
-      <datasheet>~</datasheet>
-      <libsource lib="Device" part="R_Small_US" description="Resistor, small US symbol"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>5D409C2B</tstamp>
-    </comp>
-    <comp ref="R5">
-      <value>R_Small_US</value>
-      <footprint>felcana:0805-R_Handsolder</footprint>
-      <datasheet>~</datasheet>
-      <libsource lib="Device" part="R_Small_US" description="Resistor, small US symbol"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>5D40A0AC</tstamp>
-    </comp>
-    <comp ref="BT1">
-      <value>Battery_Cell</value>
-      <footprint>Calavera:CR2032_Multicomp_MP000357_Alternative</footprint>
-      <datasheet>~</datasheet>
-      <fields>
-        <field name="MPN">MP000357</field>
-        <field name="Manufacturer ">Multicomp</field>
-      </fields>
-      <libsource lib="Calavera" part="Battery_Cell" description="Single-cell battery"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>5D40D199</tstamp>
-    </comp>
-    <comp ref="JP1">
-      <value>SolderJumper_3_Bridged12</value>
-      <footprint>Jumper:SolderJumper-3_P1.3mm_Bridged12_RoundedPad1.0x1.5mm</footprint>
-      <datasheet>~</datasheet>
-      <libsource lib="Jumper" part="SolderJumper_3_Bridged12" description="3-pole Solder Jumper, pins 1+2 closed/bridged"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>5D41FB67</tstamp>
-    </comp>
-    <comp ref="U2">
-      <value>LMV932</value>
-      <footprint>Calavera:SOIC-8_Dual_OpAmp</footprint>
-      <datasheet>https://www.onsemi.com/pub/Collateral/LMV931-D.PDF</datasheet>
-      <fields>
-        <field name="MPN">LMV932DR2G</field>
-      </fields>
-      <libsource lib="Device" part="Opamp_Dual_Generic" description="Dual operational amplifier"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>5D449065</tstamp>
+      <tstamps>00000000-0000-0000-0000-00005d3731cd</tstamps>
     </comp>
     <comp ref="C3">
       <value>22μF</value>
-      <footprint>felcana:0805-C_Handsolder</footprint>
-      <datasheet>~</datasheet>
+      <footprint>Calavera:0805-C_Handsolder</footprint>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="Tolerance" value=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Calavera.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor, small symbol"/>
+      <property name="ki_keywords" value="capacitor cap"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamp>5D456CD2</tstamp>
+      <tstamps>00000000-0000-0000-0000-00005d456cd2</tstamps>
+    </comp>
+    <comp ref="D1">
+      <value>LED_Small_ALT</value>
+      <footprint>Calavera:LED_D3.0mm_ThroughHole</footprint>
+      <libsource lib="Calavera" part="LED_3mm_TH" description=""/>
+      <property name="Tolerance" value=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Calavera.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-00005d3f2819</tstamps>
+    </comp>
+    <comp ref="D2">
+      <value>LED_Small_ALT</value>
+      <footprint>Calavera:LED_D3.0mm_ThroughHole</footprint>
+      <libsource lib="Calavera" part="LED_3mm_TH" description=""/>
+      <property name="Tolerance" value=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Calavera.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-00005d4043bc</tstamps>
+    </comp>
+    <comp ref="G1">
+      <value>Calavera_Art</value>
+      <footprint>Calavera:Calavera_Art</footprint>
+      <fields>
+        <field name="Sim.Enable">0</field>
+      </fields>
+      <libsource lib="Calavera" part="Calavera_Art" description="Calavera Badge PCB Art"/>
+      <property name="Sim.Enable" value="0"/>
+      <property name="Tolerance" value=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Calavera.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <property name="ki_description" value="Calavera Badge PCB Art"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f3c61be4-d7f5-45b8-a5c9-33d5786392b4 aef58572-cdfc-4647-b234-9df6e7e01afb</tstamps>
+    </comp>
+    <comp ref="H1">
+      <value>Ø1.75mm</value>
+      <footprint>Calavera:MountingHole_1.75mm</footprint>
+      <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
+      <property name="Tolerance" value=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Calavera.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <property name="ki_description" value="Mounting Hole without connection"/>
+      <property name="ki_keywords" value="mounting hole"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1c18796c-aedc-4a38-81cc-1e745a517391</tstamps>
+    </comp>
+    <comp ref="JP1">
+      <value>SolderJumper_3_Bridged12</value>
+      <footprint>Calavera:SolderJumper-3_P1.3mm_Bridged12_RoundedPad1.0x1.5mm</footprint>
+      <libsource lib="Calavera" part="SolderJumper_3_Bridged12-Jumper" description=""/>
+      <property name="Tolerance" value=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Calavera.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-00005d41fb67</tstamps>
+    </comp>
+    <comp ref="Q1">
+      <value>DMN65D8L</value>
+      <footprint>Calavera:SOT-23_NMOS_DMN65D8L</footprint>
+      <datasheet>https://www.diodes.com/assets/Datasheets/DMN65D8L.pdf</datasheet>
+      <fields>
+        <field name="Comments">Any NMOS, really. Used a the cheapest SOT23.</field>
+        <field name="Digikey PN">DMN65D8L-7DICT-ND</field>
+        <field name="MPN">DMN65D8L</field>
+        <field name="Manufacturer ">Diodes Inc.</field>
+      </fields>
+      <libsource lib="Calavera" part="Q_NMOS_GDS" description="N-MOSFET transistor, gate/drain/source"/>
+      <property name="Digikey PN" value="DMN65D8L-7DICT-ND"/>
+      <property name="MPN" value="DMN65D8L"/>
+      <property name="Manufacturer " value="Diodes Inc."/>
+      <property name="Comments" value="Any NMOS, really. Used a the cheapest SOT23."/>
+      <property name="Tolerance" value=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Calavera.kicad_sch"/>
+      <property name="ki_description" value="N-MOSFET transistor, gate/drain/source"/>
+      <property name="ki_keywords" value="transistor NMOS N-MOS N-MOSFET"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1da9e71d-f996-457d-80d8-601837dfc174</tstamps>
+    </comp>
+    <comp ref="R1">
+      <value>10kΩ</value>
+      <footprint>Calavera:0805-R_Handsolder</footprint>
+      <libsource lib="Device" part="R_Small_US" description="Resistor, small US symbol"/>
+      <property name="Tolerance" value=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Calavera.kicad_sch"/>
+      <property name="ki_description" value="Resistor, small US symbol"/>
+      <property name="ki_keywords" value="r resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-00005d36ddc5</tstamps>
+    </comp>
+    <comp ref="R2">
+      <value>1MΩ</value>
+      <footprint>Calavera:0805-R_Handsolder</footprint>
+      <libsource lib="Device" part="R_Small_US" description="Resistor, small US symbol"/>
+      <property name="Tolerance" value=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Calavera.kicad_sch"/>
+      <property name="ki_description" value="Resistor, small US symbol"/>
+      <property name="ki_keywords" value="r resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-00005d36f147</tstamps>
+    </comp>
+    <comp ref="R3">
+      <value>100kΩ</value>
+      <footprint>Calavera:0805-R_Handsolder</footprint>
+      <libsource lib="Device" part="R_Small_US" description="Resistor, small US symbol"/>
+      <property name="Tolerance" value=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Calavera.kicad_sch"/>
+      <property name="ki_description" value="Resistor, small US symbol"/>
+      <property name="ki_keywords" value="r resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-00005d371b56</tstamps>
+    </comp>
+    <comp ref="R4">
+      <value>180kΩ</value>
+      <footprint>Calavera:0805-R_Handsolder</footprint>
+      <libsource lib="Device" part="R_Small_US" description="Resistor, small US symbol"/>
+      <property name="Tolerance" value=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Calavera.kicad_sch"/>
+      <property name="ki_description" value="Resistor, small US symbol"/>
+      <property name="ki_keywords" value="r resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-00005d4596d8</tstamps>
+    </comp>
+    <comp ref="R5">
+      <value>RΩ</value>
+      <footprint>Calavera:0805-R_Handsolder</footprint>
+      <libsource lib="Device" part="R_Small_US" description="Resistor, small US symbol"/>
+      <property name="Tolerance" value=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Calavera.kicad_sch"/>
+      <property name="ki_description" value="Resistor, small US symbol"/>
+      <property name="ki_keywords" value="r resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-00005d409c2b</tstamps>
+    </comp>
+    <comp ref="R6">
+      <value>RΩ</value>
+      <footprint>Calavera:0805-R_Handsolder</footprint>
+      <libsource lib="Device" part="R_Small_US" description="Resistor, small US symbol"/>
+      <property name="Tolerance" value=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Calavera.kicad_sch"/>
+      <property name="ki_description" value="Resistor, small US symbol"/>
+      <property name="ki_keywords" value="r resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-00005d40a0ac</tstamps>
     </comp>
     <comp ref="R7">
       <value>1200Ω</value>
-      <footprint>felcana:0805-R_Handsolder</footprint>
-      <datasheet>~</datasheet>
+      <footprint>Calavera:0805-R_Handsolder</footprint>
       <libsource lib="Device" part="R_Small_US" description="Resistor, small US symbol"/>
+      <property name="Tolerance" value=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Calavera.kicad_sch"/>
+      <property name="ki_description" value="Resistor, small US symbol"/>
+      <property name="ki_keywords" value="r resistor"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamp>5D45762A</tstamp>
+      <tstamps>00000000-0000-0000-0000-00005d45762a</tstamps>
     </comp>
     <comp ref="R8">
       <value>8200Ω</value>
-      <footprint>felcana:0805-R_Handsolder</footprint>
-      <datasheet>~</datasheet>
+      <footprint>Calavera:0805-R_Handsolder</footprint>
       <libsource lib="Device" part="R_Small_US" description="Resistor, small US symbol"/>
+      <property name="Tolerance" value=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Calavera.kicad_sch"/>
+      <property name="ki_description" value="Resistor, small US symbol"/>
+      <property name="ki_keywords" value="r resistor"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamp>5D458A2D</tstamp>
-    </comp>
-    <comp ref="R6">
-      <value>180kΩ</value>
-      <footprint>felcana:0805-R_Handsolder</footprint>
-      <datasheet>~</datasheet>
-      <libsource lib="Device" part="R_Small_US" description="Resistor, small US symbol"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>5D4596D8</tstamp>
+      <tstamps>00000000-0000-0000-0000-00005d458a2d</tstamps>
     </comp>
     <comp ref="R9">
       <value>2490</value>
-      <footprint>felcana:0805-R_Handsolder</footprint>
-      <datasheet>~</datasheet>
+      <footprint>Calavera:0805-R_Handsolder</footprint>
       <libsource lib="Device" part="R_Small_US" description="Resistor, small US symbol"/>
+      <property name="Tolerance" value=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Calavera.kicad_sch"/>
+      <property name="ki_description" value="Resistor, small US symbol"/>
+      <property name="ki_keywords" value="r resistor"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamp>5D50C282</tstamp>
+      <tstamps>00000000-0000-0000-0000-00005d50c282</tstamps>
     </comp>
     <comp ref="R10">
       <value>10kΩ</value>
-      <footprint>felcana:0805-R_Handsolder</footprint>
-      <datasheet>~</datasheet>
+      <footprint>Calavera:0805-R_Handsolder</footprint>
       <libsource lib="Device" part="R_Small_US" description="Resistor, small US symbol"/>
+      <property name="Tolerance" value=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Calavera.kicad_sch"/>
+      <property name="ki_description" value="Resistor, small US symbol"/>
+      <property name="ki_keywords" value="r resistor"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamp>5D50C685</tstamp>
+      <tstamps>00000000-0000-0000-0000-00005d50c685</tstamps>
     </comp>
-    <comp ref="Q1">
-      <value>Q_DUAL_NMOS</value>
-      <footprint>Calavera:SOT-363_NX138BKS_Handsolder</footprint>
-      <datasheet>https://assets.nexperia.com/documents/data-sheet/NX138BKS.pdf</datasheet>
+    <comp ref="SW1">
+      <value>SW_SPDT</value>
+      <footprint>Calavera:Slider_Switch_C&amp;K_AYZ0102AGRLC_SPDT_RightAngle</footprint>
       <fields>
-        <field name="MPN">NX138BKS</field>
+        <field name="Digikey PN">401-2012-1-ND</field>
+        <field name="MPN">AYZ0102AGRLC</field>
+        <field name="Manufacturer ">C&amp;K</field>
       </fields>
-      <libsource lib="Calavera" part="Q_DUAL_NMOS" description="Dual NMOS transistor, 6 pin package"/>
+      <libsource lib="Calavera" part="SW_SPDT" description="Switch, single pole double throw"/>
+      <property name="MPN" value="AYZ0102AGRLC"/>
+      <property name="Manufacturer " value="C&amp;K"/>
+      <property name="Digikey PN" value="401-2012-1-ND"/>
+      <property name="Tolerance" value=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Calavera.kicad_sch"/>
+      <property name="ki_description" value="Switch, single pole double throw"/>
+      <property name="ki_keywords" value="switch single-pole double-throw spdt ON-ON"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamp>5D434442</tstamp>
+      <tstamps>4401cb24-54ba-4226-b520-2e4942693aea</tstamps>
     </comp>
     <comp ref="U1">
       <value>AT42QT1012</value>
       <footprint>Calavera:SOT23-6-AT42QT1012</footprint>
       <datasheet>http://ww1.microchip.com/downloads/en/devicedoc/40001948a.pdf</datasheet>
       <fields>
-        <field name="MPN">AT42QT1012-TSHR </field>
+        <field name="Digikey PN">401-2012-1-ND</field>
+        <field name="MPN">AT42QT1012-TSHR</field>
+        <field name="Manufacturer ">MicroChip</field>
       </fields>
       <libsource lib="Calavera" part="AT42QT1012" description=""/>
+      <property name="MPN" value="AT42QT1012-TSHR"/>
+      <property name="Manufacturer " value="MicroChip"/>
+      <property name="Digikey PN" value="401-2012-1-ND"/>
+      <property name="Tolerance" value=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Calavera.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamp>5D36F6BF</tstamp>
+      <tstamps>00000000-0000-0000-0000-00005d36f6bf</tstamps>
     </comp>
-    <comp ref="G4">
-      <value>Silk</value>
-      <footprint>Calavera:Calavera_SilkScreen_1200dpi</footprint>
-      <libsource lib="Calavera" part="Silk" description="Calavera Skull silkscreen"/>
+    <comp ref="U2">
+      <value>LMV932</value>
+      <footprint>Calavera:SOIC-8_Dual_OpAmp_Handsolder</footprint>
+      <datasheet>https://www.onsemi.com/pub/Collateral/LMV931-D.PDF</datasheet>
+      <fields>
+        <field name="Digikey PN">LMV932DR2GOSCT-ND</field>
+        <field name="MPN">MV932DR2G</field>
+        <field name="Manufacturer ">OnSemi</field>
+      </fields>
+      <libsource lib="Calavera" part="Opamp_Dual" description=""/>
+      <property name="MPN" value="MV932DR2G"/>
+      <property name="Manufacturer " value="OnSemi"/>
+      <property name="Digikey PN" value="LMV932DR2GOSCT-ND"/>
+      <property name="Tolerance" value=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Calavera.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamp>5D5C30EC</tstamp>
-    </comp>
-    <comp ref="G3">
-      <value>Mask</value>
-      <footprint>Calavera:Calavera_SolderMask_1200dpi</footprint>
-      <libsource lib="Calavera" part="Mask" description="Calavera Skull SolderMask Gaps"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>5D5CCE2E</tstamp>
-    </comp>
-    <comp ref="G2">
-      <value>Edge</value>
-      <footprint>Calavera:Calavera_Board_Margins</footprint>
-      <libsource lib="Calavera" part="Edge" description="Calavera Skull Board Edge"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>5D5D7396</tstamp>
+      <tstamps>00000000-0000-0000-0000-00005d449065 00000000-0000-0000-0000-00005d44a1d9 00000000-0000-0000-0000-00005d4485a3</tstamps>
     </comp>
   </components>
   <libparts>
     <libpart lib="Calavera" part="AT42QT1012">
-      <docs>http://ww1.microchip.com/downloads/en/devicedoc/40001948a.pdf</docs>
       <fields>
         <field name="Reference">U</field>
         <field name="Value">AT42QT1012</field>
@@ -239,89 +364,31 @@
       </pins>
     </libpart>
     <libpart lib="Calavera" part="Battery_Cell">
-      <description>Single-cell battery</description>
-      <docs>~</docs>
       <fields>
         <field name="Reference">BT</field>
         <field name="Value">Battery_Cell</field>
+        <field name="Footprint">Calavera:CR2032_Keystone_3024</field>
       </fields>
       <pins>
         <pin num="+" name="+" type="passive"/>
         <pin num="-" name="-" type="passive"/>
       </pins>
     </libpart>
-    <libpart lib="Calavera" part="Edge">
-      <description>Calavera Skull Board Edge</description>
+    <libpart lib="Calavera" part="Calavera_Art">
+      <description>Calavera Badge PCB Art</description>
+      <docs>~</docs>
       <fields>
         <field name="Reference">G</field>
-        <field name="Value">Edge</field>
-      </fields>
-    </libpart>
-    <libpart lib="Calavera" part="HeartPad">
-      <fields>
-        <field name="Reference">G</field>
-        <field name="Value">HeartPad</field>
-        <field name="Footprint">Calavera:Cap_Pad</field>
+        <field name="Value">Calavera_Art</field>
+        <field name="Footprint">Calavera:Calavera_Art</field>
+        <field name="Datasheet">~</field>
+        <field name="Sim.Enable">0</field>
       </fields>
       <pins>
         <pin num="1" name="1" type="output"/>
       </pins>
     </libpart>
-    <libpart lib="Calavera" part="Mask">
-      <description>Calavera Skull SolderMask Gaps</description>
-      <fields>
-        <field name="Reference">G</field>
-        <field name="Value">Mask</field>
-      </fields>
-    </libpart>
-    <libpart lib="Calavera" part="Q_DUAL_NMOS">
-      <description>Dual NMOS transistor, 6 pin package</description>
-      <docs>~</docs>
-      <footprints>
-        <fp>TSOP*</fp>
-        <fp>SC?70*</fp>
-        <fp>SC?88*</fp>
-        <fp>SOT?363*</fp>
-      </footprints>
-      <fields>
-        <field name="Reference">Q</field>
-        <field name="Value">Q_DUAL_NMOS</field>
-        <field name="Footprint">Calavera:SOT-363_NX138BKS</field>
-      </fields>
-      <pins>
-        <pin num="D1" name="D1" type="passive"/>
-        <pin num="D2" name="D1" type="passive"/>
-        <pin num="G1" name="G1" type="input"/>
-        <pin num="G2" name="G2" type="input"/>
-        <pin num="S1" name="S1" type="passive"/>
-        <pin num="S2" name="S1" type="passive"/>
-      </pins>
-    </libpart>
-    <libpart lib="Calavera" part="Silk">
-      <description>Calavera Skull silkscreen</description>
-      <fields>
-        <field name="Reference">G</field>
-        <field name="Value">Silk</field>
-      </fields>
-    </libpart>
-    <libpart lib="Device" part="C_Small">
-      <description>Unpolarized capacitor, small symbol</description>
-      <docs>~</docs>
-      <footprints>
-        <fp>C_*</fp>
-      </footprints>
-      <fields>
-        <field name="Reference">C</field>
-        <field name="Value">C_Small</field>
-      </fields>
-      <pins>
-        <pin num="1" name="~" type="passive"/>
-        <pin num="2" name="~" type="passive"/>
-      </pins>
-    </libpart>
-    <libpart lib="Device" part="LED_ALT">
-      <description>Light emitting diode, filled shape</description>
-      <docs>~</docs>
+    <libpart lib="Calavera" part="LED_3mm_TH">
       <footprints>
         <fp>LED*</fp>
         <fp>LED_SMD:*</fp>
@@ -329,16 +396,15 @@
       </footprints>
       <fields>
         <field name="Reference">D</field>
-        <field name="Value">LED_ALT</field>
+        <field name="Value">Colour</field>
+        <field name="Footprint">Calavera:LED_D3.0mm_ThroughHole</field>
       </fields>
       <pins>
         <pin num="1" name="K" type="passive"/>
         <pin num="2" name="A" type="passive"/>
       </pins>
     </libpart>
-    <libpart lib="Device" part="Opamp_Dual_Generic">
-      <description>Dual operational amplifier</description>
-      <docs>~</docs>
+    <libpart lib="Calavera" part="Opamp_Dual">
       <footprints>
         <fp>SOIC*3.9x4.9mm*P1.27mm*</fp>
         <fp>DIP*W7.62mm*</fp>
@@ -350,17 +416,77 @@
       </footprints>
       <fields>
         <field name="Reference">U</field>
-        <field name="Value">Opamp_Dual_Generic</field>
+        <field name="Value">Opamp_Dual</field>
+        <field name="Footprint">Calavera:SOIC-8_Dual_OpAmp_Handsolder</field>
       </fields>
       <pins>
-        <pin num="1" name="~" type="output"/>
+        <pin num="1" name="" type="output"/>
         <pin num="2" name="-" type="input"/>
         <pin num="3" name="+" type="input"/>
         <pin num="4" name="V-" type="power_in"/>
         <pin num="5" name="+" type="input"/>
         <pin num="6" name="-" type="input"/>
-        <pin num="7" name="~" type="output"/>
+        <pin num="7" name="" type="output"/>
         <pin num="8" name="V+" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="Calavera" part="Q_NMOS_GDS">
+      <description>N-MOSFET transistor, gate/drain/source</description>
+      <docs>~</docs>
+      <fields>
+        <field name="Reference">Q</field>
+        <field name="Value">Q_NMOS_GDS</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="G" type="input"/>
+        <pin num="2" name="D" type="passive"/>
+        <pin num="3" name="S" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Calavera" part="SW_SPDT">
+      <description>Switch, single pole double throw</description>
+      <docs>~</docs>
+      <fields>
+        <field name="Reference">SW</field>
+        <field name="Value">SW_SPDT</field>
+        <field name="Footprint">Calavera:Slider_Switch_C&amp;K_AYZ0102AGRLC_SPDT_RightAngle</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="A" type="passive"/>
+        <pin num="2" name="B" type="passive"/>
+        <pin num="3" name="C" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Calavera" part="SolderJumper_3_Bridged12-Jumper">
+      <footprints>
+        <fp>SolderJumper*Bridged12*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">JP</field>
+        <field name="Value">SolderJumper_3_Bridged12-Jumper</field>
+      </fields>
+      <pins>
+        <pin num="1" name="A" type="passive"/>
+        <pin num="2" name="C" type="input"/>
+        <pin num="3" name="B" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="C_Small">
+      <description>Unpolarized capacitor, small symbol</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>C_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C_Small</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
       </pins>
     </libpart>
     <libpart lib="Device" part="R_Small_US">
@@ -372,126 +498,127 @@
       <fields>
         <field name="Reference">R</field>
         <field name="Value">R_Small_US</field>
+        <field name="Datasheet">~</field>
       </fields>
       <pins>
-        <pin num="1" name="~" type="passive"/>
-        <pin num="2" name="~" type="passive"/>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
       </pins>
     </libpart>
-    <libpart lib="Jumper" part="SolderJumper_3_Bridged12">
-      <description>3-pole Solder Jumper, pins 1+2 closed/bridged</description>
+    <libpart lib="Mechanical" part="MountingHole">
+      <description>Mounting Hole without connection</description>
       <docs>~</docs>
       <footprints>
-        <fp>SolderJumper*Bridged12*</fp>
+        <fp>MountingHole*</fp>
       </footprints>
       <fields>
-        <field name="Reference">JP</field>
-        <field name="Value">SolderJumper_3_Bridged12</field>
+        <field name="Reference">H</field>
+        <field name="Value">MountingHole</field>
+        <field name="Datasheet">~</field>
       </fields>
-      <pins>
-        <pin num="1" name="A" type="passive"/>
-        <pin num="2" name="C" type="input"/>
-        <pin num="3" name="B" type="passive"/>
-      </pins>
     </libpart>
   </libparts>
   <libraries>
     <library logical="Calavera">
-      <uri>C:\Users\Joel\Dropbox\KiCad\Calavera/Calavera.lib</uri>
+      <uri>/Calavera/hardware/library/Calavera.kicad_sym</uri>
     </library>
     <library logical="Device">
-      <uri>C:\Program Files\KiCad\share\kicad\library/Device.lib</uri>
+      <uri>/usr/share/kicad/symbols/Device.kicad_sym</uri>
     </library>
-    <library logical="Jumper">
-      <uri>C:\Program Files\KiCad\share\kicad\library/Jumper.lib</uri>
+    <library logical="Mechanical">
+      <uri>/usr/share/kicad/symbols/Mechanical.kicad_sym</uri>
     </library>
   </libraries>
   <nets>
-    <net code="1" name="Vfade">
-      <node ref="U2" pin="1"/>
-      <node ref="C3" pin="2"/>
-      <node ref="JP1" pin="3"/>
-      <node ref="R7" pin="1"/>
+    <net code="1" name="CapTouch">
+      <node ref="G1" pin="1" pinfunction="1" pintype="output"/>
+      <node ref="R1" pin="2" pintype="passive"/>
     </net>
-    <net code="2" name="Net-(C3-Pad1)">
-      <node ref="R6" pin="1"/>
-      <node ref="C3" pin="1"/>
-      <node ref="U2" pin="2"/>
+    <net code="2" name="Cap_Out">
+      <node ref="Q1" pin="1" pinfunction="G" pintype="input"/>
+      <node ref="R3" pin="1" pintype="passive"/>
+      <node ref="U1" pin="1" pinfunction="OUT" pintype="output"/>
     </net>
-    <net code="3" name="VCC">
-      <node ref="JP1" pin="1"/>
-      <node ref="C2" pin="1"/>
-      <node ref="U2" pin="8"/>
-      <node ref="U1" pin="5"/>
-      <node ref="BT1" pin="+"/>
-      <node ref="R9" pin="1"/>
+    <net code="3" name="GND">
+      <node ref="BT1" pin="-" pinfunction="-" pintype="passive"/>
+      <node ref="C2" pin="2" pintype="passive"/>
+      <node ref="Q1" pin="3" pinfunction="S" pintype="passive"/>
+      <node ref="R10" pin="2" pintype="passive"/>
+      <node ref="R2" pin="2" pintype="passive"/>
+      <node ref="R3" pin="2" pintype="passive"/>
+      <node ref="U1" pin="2" pinfunction="GND" pintype="power_in"/>
+      <node ref="U1" pin="6" pinfunction="TIME" pintype="power_in"/>
+      <node ref="U2" pin="4" pinfunction="V-" pintype="power_in"/>
     </net>
-    <net code="4" name="GND">
-      <node ref="R3" pin="2"/>
-      <node ref="Q1" pin="S2"/>
-      <node ref="C2" pin="2"/>
-      <node ref="BT1" pin="-"/>
-      <node ref="U2" pin="4"/>
-      <node ref="R2" pin="2"/>
-      <node ref="U1" pin="2"/>
-      <node ref="U1" pin="6"/>
-      <node ref="Q1" pin="S1"/>
-      <node ref="R10" pin="2"/>
+    <net code="4" name="Net-(D1-A)">
+      <node ref="D1" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="R5" pin="2" pintype="passive"/>
     </net>
-    <net code="5" name="Net-(R7-Pad2)">
-      <node ref="R8" pin="1"/>
-      <node ref="R7" pin="2"/>
-      <node ref="U2" pin="5"/>
+    <net code="5" name="Net-(D2-A)">
+      <node ref="D2" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="R6" pin="2" pintype="passive"/>
     </net>
-    <net code="6" name="Net-(R6-Pad2)">
-      <node ref="R6" pin="2"/>
-      <node ref="R8" pin="2"/>
-      <node ref="U2" pin="7"/>
+    <net code="6" name="Net-(R4-Pad2)">
+      <node ref="R4" pin="2" pintype="passive"/>
+      <node ref="R8" pin="2" pintype="passive"/>
+      <node ref="U2" pin="7" pintype="output"/>
     </net>
-    <net code="7" name="Vbias">
-      <node ref="U2" pin="6"/>
-      <node ref="R9" pin="2"/>
-      <node ref="R10" pin="1"/>
-      <node ref="U2" pin="3"/>
+    <net code="7" name="Net-(SW1-C)">
+      <node ref="BT1" pin="+" pinfunction="+" pintype="passive"/>
+      <node ref="SW1" pin="3" pinfunction="C" pintype="passive"/>
     </net>
-    <net code="8" name="VLEDK">
-      <node ref="Q1" pin="D2"/>
-      <node ref="D2" pin="1"/>
-      <node ref="Q1" pin="D1"/>
-      <node ref="D1" pin="1"/>
+    <net code="8" name="Net-(U1-SNS)">
+      <node ref="C1" pin="2" pintype="passive"/>
+      <node ref="R2" pin="1" pintype="passive"/>
+      <node ref="U1" pin="4" pinfunction="SNS" pintype="input"/>
     </net>
-    <net code="9" name="Net-(C1-Pad2)">
-      <node ref="C1" pin="2"/>
-      <node ref="U1" pin="4"/>
-      <node ref="R2" pin="1"/>
+    <net code="9" name="Net-(U1-SNSK)">
+      <node ref="C1" pin="1" pintype="passive"/>
+      <node ref="R1" pin="1" pintype="passive"/>
+      <node ref="U1" pin="3" pinfunction="SNSK" pintype="input"/>
     </net>
-    <net code="10" name="Cap_Out">
-      <node ref="R3" pin="1"/>
-      <node ref="Q1" pin="G2"/>
-      <node ref="Q1" pin="G1"/>
-      <node ref="U1" pin="1"/>
+    <net code="10" name="Net-(U2A--)">
+      <node ref="C3" pin="1" pintype="passive"/>
+      <node ref="R4" pin="1" pintype="passive"/>
+      <node ref="U2" pin="2" pinfunction="-" pintype="input"/>
     </net>
-    <net code="11" name="Net-(C1-Pad1)">
-      <node ref="R1" pin="1"/>
-      <node ref="C1" pin="1"/>
-      <node ref="U1" pin="3"/>
+    <net code="11" name="VCC">
+      <node ref="C2" pin="1" pintype="passive"/>
+      <node ref="JP1" pin="1" pinfunction="A" pintype="passive"/>
+      <node ref="R9" pin="1" pintype="passive"/>
+      <node ref="SW1" pin="2" pinfunction="B" pintype="passive"/>
+      <node ref="U1" pin="5" pinfunction="VDD" pintype="power_in"/>
+      <node ref="U2" pin="8" pinfunction="V+" pintype="power_in"/>
     </net>
-    <net code="12" name="Net-(D1-Pad2)">
-      <node ref="D1" pin="2"/>
-      <node ref="R4" pin="2"/>
+    <net code="12" name="VJ1">
+      <node ref="R7" pin="2" pintype="passive"/>
+      <node ref="R8" pin="1" pintype="passive"/>
+      <node ref="U2" pin="5" pinfunction="+" pintype="input"/>
     </net>
-    <net code="13" name="/Sense">
-      <node ref="R1" pin="2"/>
-      <node ref="G1" pin="1"/>
+    <net code="13" name="VLED">
+      <node ref="JP1" pin="2" pinfunction="C" pintype="input"/>
+      <node ref="R5" pin="1" pintype="passive"/>
+      <node ref="R6" pin="1" pintype="passive"/>
     </net>
-    <net code="14" name="Net-(D2-Pad2)">
-      <node ref="R5" pin="2"/>
-      <node ref="D2" pin="2"/>
+    <net code="14" name="VLEDK">
+      <node ref="D1" pin="1" pinfunction="K" pintype="passive"/>
+      <node ref="D2" pin="1" pinfunction="K" pintype="passive"/>
+      <node ref="Q1" pin="2" pinfunction="D" pintype="passive"/>
     </net>
-    <net code="15" name="VLED">
-      <node ref="R5" pin="1"/>
-      <node ref="R4" pin="1"/>
-      <node ref="JP1" pin="2"/>
+    <net code="15" name="Vbias">
+      <node ref="R10" pin="1" pintype="passive"/>
+      <node ref="R9" pin="2" pintype="passive"/>
+      <node ref="U2" pin="3" pinfunction="+" pintype="input"/>
+      <node ref="U2" pin="6" pinfunction="-" pintype="input"/>
+    </net>
+    <net code="16" name="Vfade">
+      <node ref="C3" pin="2" pintype="passive"/>
+      <node ref="JP1" pin="3" pinfunction="B" pintype="passive"/>
+      <node ref="R7" pin="1" pintype="passive"/>
+      <node ref="U2" pin="1" pintype="output"/>
+    </net>
+    <net code="17" name="unconnected-(SW1-A-Pad1)">
+      <node ref="SW1" pin="1" pinfunction="A" pintype="passive+no_connect"/>
     </net>
   </nets>
 </export>

@@ -1,3 +1,5 @@
 (sym_lib_table
+  (version 7)
   (lib (name "Calavera")(type "KiCad")(uri "${KIPRJMOD}/library/Calavera.kicad_sym")(options "")(descr ""))
+  (lib (name "test")(type "KiCad")(uri "C:/Users/joel.santos/OneDrive - Brompton Bicycle Ltd/Desktop/Calavera/test.kicad_sym")(options "")(descr ""))
 )
