@@ -5,17 +5,17 @@ on:
     # branches:
     #   - master
     #   - v0.3.1
-    paths:
-    # Changes on kicad eeschema or board
-    - '**/**.kicad_@(sch|pcb)'
-    # changes on any yml file
-    - '**/**.y*(a)ml'
-  pull_request:
-    paths:
-      # Changes on kicad eeschema or board
-    - '**/**.kicad_@(sch|pcb)'
-    # changes on any yml or yaml file
-    - '**/**.y*(a)ml'
+    # paths:
+    # # Changes on kicad eeschema or board
+    # - '**/**.kicad_@(sch|pcb)'
+    # # changes on any yml file
+    # - '**/**.y*(a)ml'
+  # pull_request:
+    # paths:
+    #   # Changes on kicad eeschema or board
+    # - '**/**.kicad_@(sch|pcb)'
+    # # changes on any yml or yaml file
+    # - '**/**.y*(a)ml'
 
 jobs:
   KiBotCICD:
