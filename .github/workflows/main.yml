@@ -43,13 +43,14 @@ jobs:
           name: Artifacts
           path: Artifacts
       # In case we want to SSH into the machine
-      - name: Setup upterm session
-        uses: lhotari/action-upterm@v1
+      # 'sudo touch /continue' to close the session
+      # - name: Setup upterm session
+        # uses: lhotari/action-upterm@v1
       - name: push changes to repo
         if: ${{ github.ref == 'refs/heads/master'}}
         run: |
           mkdir -p support/img
-          cp Artifacts/BlenderRender/*.png support/img/
+          sudo cp Artifacts/BlenderRender/*.png support/img/
           git config user.name github-actions
           git config user.email github-actions@github.com
           # so far only changes in the support folder need to be pushed back
