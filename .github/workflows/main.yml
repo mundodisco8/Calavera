@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - master
-      - v0.3.1
     paths:
     # Changes on kicad eeschema or board
     - '**/**.kicad_sch'
@@ -45,7 +44,7 @@ jobs:
       # In case we want to SSH into the machine
       # 'sudo touch /continue' to close the session
       # - name: Setup upterm session
-        # uses: lhotari/action-upterm@v1
+      #   uses: lhotari/action-upterm@v1
       - name: push changes to repo
         if: ${{ github.ref == 'refs/heads/master'}}
         run: |
