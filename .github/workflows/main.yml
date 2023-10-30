@@ -2,9 +2,9 @@ name: Generate Manufacture Artifacts
 
 on:
   push:
-    branches:
-      - master
-      - v0.3.1
+    # branches:
+    #   - master
+    #   - v0.3.1
     paths:
     # Changes on kicad eeschema or board
     - '**/**.kicad_@(sch|pcb)'
