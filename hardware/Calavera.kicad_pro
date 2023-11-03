@@ -56,7 +56,18 @@
           "width": 0.0
         }
       ],
-      "drc_exclusions": [],
+      "drc_exclusions": [
+        "silk_over_copper|106506760|96156631|90326bf2-beb8-4ea4-99d7-4932917febfb|00000000-0000-0000-0000-000000000000",
+        "silk_over_copper|109772207|96212818|ae8d4306-bb47-4874-b99e-133e800d318d|00000000-0000-0000-0000-000000000000",
+        "silk_over_copper|113744489|109311982|3cdd8ee7-7f69-48b9-8019-c3348a755c15|00000000-0000-0000-0000-000000000000",
+        "silk_over_copper|90314678|97435121|636bedde-e78a-4649-914a-2a5eb2c46a9f|00000000-0000-0000-0000-000000000000",
+        "silk_over_copper|93111456|97449963|016cb042-40dd-4e0e-a300-2a3feb47e997|00000000-0000-0000-0000-000000000000",
+        "silk_over_copper|99411286|72753834|948b0844-048d-4ca2-97b9-4ffccffca4c6|00000000-0000-0000-0000-000000000000",
+        "solder_mask_bridge|100499569|71383931|2df8674e-8394-4065-b72d-80ff088adc11|00000000-0000-0000-0000-00005e171324",
+        "solder_mask_bridge|109540000|96600000|4c1e9da4-577a-43b7-a9b4-20fe5214f0c1|1954a43c-e681-4ee4-bcc9-eb04ab6834ed",
+        "solder_mask_bridge|90460000|96900000|7b068a5a-fdaa-4006-9e43-208cfcdaa291|9619fbd7-d7bd-4126-ac43-b92874c19465",
+        "unconnected_items|88600000|118200000|2e2e5f74-f8ff-4483-98e0-3009981ee538|106853c2-eea9-42d5-ad9c-eb90f57dc808"
+      ],
       "meta": {
         "filename": "board_design_settings.json",
         "version": 2
@@ -519,7 +530,7 @@
     ]
   ],
   "text_variables": {
-    "GIT_HASH": "<ce9858e>",
-    "TODAY": "2023-10-30"
+    "GIT_HASH": "<22beced>",
+    "TODAY": "2023-11-03"
   }
 }
